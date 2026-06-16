@@ -27,7 +27,7 @@
 <section class="slide" data-title="目录">
 <p class="eyebrow">Agenda · 目录</p>
 <h2 class="h2">今天讲四件大事</h2>
-<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
 <div class="card"><div class="row"><div class="h3 dim2" style="width:56px;flex-shrink:0">01</div><div><h4>产品研发</h4><p class="dim">AI 数据分析与智能选品 — 市场洞察 / 竞品拆解 / 动态定价</p></div></div></div>
 <div class="card"><div class="row"><div class="h3 dim2" style="width:56px;flex-shrink:0">02</div><div><h4>内容创建</h4><p class="dim">AI 批量生成图片与视频 — 商品图 / 短视频 / 文案 / 审核</p></div></div></div>
 <div class="card"><div class="row"><div class="h3 dim2" style="width:56px;flex-shrink:0">03</div><div><h4>供应链</h4><p class="dim">AI 预测库存与需求优化 — 需求预测 / 智能补货 / 物流调度</p></div></div></div>
@@ -141,13 +141,47 @@
 <section class="slide" data-title="竞品数据拆解">
 <p class="kicker">02 · 竞品数据拆解</p>
 <h2 class="h2">知己知彼，AI 自动拆解竞品</h2>
-<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
-<div class="card"><h4>💰 拆价格：盯住怎么变价</h4><p class="dim" style="font-size:13px">Keepa / 魔镜每日抓标价、券后价、促销标签 → 🧠 Prophet + LSTM 预测 7 天走势 → 异动秒级告警 + 推送调价建议</p></div>
-<div class="card"><h4>👁️ 拆产品：看图识别属性</h4><p class="dim" style="font-size:13px">GPT-4V 识别竞品主图 → 领型 / 袖长 / 面料 / 风格标签 → 🧠 CLIP 风格聚类，自动归类竞品打法</p></div>
-<div class="card"><h4>📊 拆全局：自动出 SWOT 报告（优势·劣势·机会·威胁）</h4><p class="dim" style="font-size:13px">聚合价格 + 属性 + 评论 + 上新数据 → 🧠 GPT-4o 生成结构化 SWOT → 填入 PPT，每周自动推送管理群</p></div>
-<div class="card card-outline" style="border-color:var(--accent-2)"><h4 style="color:var(--accent-2)">📝 核心 Prompt</h4><p class="dim" style="font-size:12px;line-height:1.5"><em>"分析竞品X近7天价格序列，识别定价策略模式（高频调价/阶梯降价/活动前涨价），推测其营销意图，给出我方应对建议。"</em></p></div>
+<button onclick="document.getElementById(&quot;prompt-modal-5&quot;).style.display=&quot;flex&quot;" style="position:absolute;top:16px;right:16px;z-index:100;background:var(--accent);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer;font-weight:600">📋 竞品分析 Prompt</button>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
+<div class="card"><h4>💰 拆价格：盯住怎么变价</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 标价/券后价/促销标签（🔧 Keepa + 魔镜市场情报 每日抓取）→ 🧠 Prophet + LSTM → 📤 7天价格走势预测 + 异动秒级告警 + 调价建议</p></div>
+<div class="card"><h4>👁️ 拆产品：看图识别属性</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 竞品主图（← 🔧 八爪鱼 爬取商品页）→ 🧠 GPT-4V 识别 领型/袖长/面料/风格 → CLIP 向量聚类 → 📤 竞品风格标签 + 自动归类</p></div>
+<div class="card"><h4>📊 拆全局：自动出 SWOT 报告（优势·劣势·机会·威胁）</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 价格/属性/评论/上新数据（🔧 八爪鱼 + Keepa 多源聚合）→ 🧠 GPT-4o → 📤 结构化 SWOT 报告 + 自动填入 PPT + 每周推送管理群</p></div>
+
 </div>
 <div class="pipeline mt-m" style="display:flex;justify-content:center;gap:8px;align-items:center;font-size:12px"><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">① 市场洞察</span><span style="color:var(--text-3)">→</span><span class="pill pill-accent" style="font-size:12px">② 竞品拆解</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">③ 智能选品</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">④ 动态定价</span></div>
+
+<!-- 竞品分析提示词弹窗 -->
+<div id="prompt-modal-5" onclick="this.style.display=&quot;none&quot;" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center">
+<div onclick="event.stopPropagation()" style="background:var(--bg);border-radius:12px;padding:28px 32px;max-width:800px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.4);position:relative">
+<button onclick="document.getElementById(&quot;prompt-modal-5&quot;).style.display=&quot;none&quot;" style="position:sticky;top:0;float:right;background:var(--bg-2);border:1px solid var(--line);border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;color:var(--text-3);z-index:1">&times;</button>
+<h2 style="margin:0 0 16px;font-size:22px">📋 竞品分析 Prompt</h2>
+<pre style="white-space:pre;font-family:Consolas,'Courier New',monospace;font-size:13px;line-height:1.6;color:var(--text-1);background:var(--bg-2);padding:20px;border-radius:8px;overflow-x:auto;margin:0"># 竞品分析 Prompt 模板
+
+```
+你是一个电商竞品分析师。请基于提供的竞品价格数据，完成以下分析：
+
+【输入数据】
+- 竞品 X 近 7 天每日标价、券后价、促销标签（满减/秒杀/会员价）
+- 竞品 X 近 30 天价格历史（用于对比趋势）
+- 平台大促日历（618/双11/品类日等节点标注）
+
+【分析任务】
+1. 价格波动识别：标注 7 天内所有调价节点，计算调价幅度（%）、调价频率（次/天）、调价方向（涨/降）
+2. 策略模式判定：将价格行为归类为以下模式之一或多选——
+   · 高频调价（日均调价 ≥ 2 次，小幅浮动）
+   · 阶梯降价（逐日递减，配合活动倒计时）
+   · 活动前涨价（大促前 3-7 天提价，活动当天"打折"）
+   · 跟随定价（与我方/行业价格走势强相关）
+   · 清仓甩卖（持续降价 + 库存告急信号）
+3. 营销意图推测：基于策略模式 + 促销标签 + 时间节点，推断竞品当前意图——冲销量/清库存/拉新客/利润收割/防守阻击
+4. 应对建议：针对每种意图，给出我方 3 条可执行对策（调价/促销/产品差异化），标注优先级（高/中/低）
+
+【输出格式】
+使用 Markdown 表格输出，每行一项分析，含：时间 | 动作 | 模式 | 意图 | 我方对策 | 优先级
+末尾附 200 字以内的结论摘要，给出「跟进 / 观望 / 反击」建议。
+```</pre>
+</div>
+</div>
 <div class="deck-footer"><span class="dim2">产品研发</span><span>5 / 23</span></div>
 <div class="notes">竞品拆解的重点不是看竞品卖多少钱，而是理解对方的价格策略和营销意图。GPT-4V 可以直接看懂竞品图里的设计元素。每周一份自动生成的SWOT报告可以大幅降低分析师的重复劳动。</div>
 </section>
@@ -155,13 +189,13 @@
 <section class="slide" data-title="智能选品决策">
 <p class="kicker">03 · 智能选品决策</p>
 <h2 class="h2">四维选品矩阵：从"感觉"到"科学"</h2>
-<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
-<div class="card center tc"><div class="h1 gradient-text" style="font-size:56px;margin:0">💰</div><h4>利润维度</h4><p class="dim" style="font-size:12px;margin-top:8px">毛利率 × 客单价 / 退货率扣减 / XGBoost 预估</p></div>
-<div class="card center tc"><div class="h1 gradient-text" style="font-size:56px;margin:0">📈</div><h4>需求维度</h4><p class="dim" style="font-size:12px;margin-top:8px">搜索量 × 转化率 / 季节性因子 / 趋势加速度</p></div>
-<div class="card center tc"><div class="h1 gradient-text" style="font-size:56px;margin:0">⚔️</div><h4>竞争强度</h4><p class="dim" style="font-size:12px;margin-top:8px">竞品数量 × 集中度 / 价格带饱和度 / 评论壁垒</p></div>
-<div class="card center tc"><div class="h1 gradient-text" style="font-size:56px;margin:0">🔗</div><h4>供应链风险</h4><p class="dim" style="font-size:12px;margin-top:8px">交期稳定性 / 最小起订量 / 供应商产能</p></div>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:10px">
+<div class="card"><h4>💰 利润维度</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 毛利率 / 客单价 / 退货率（竞品拆解：价格走势 + 内部财务数据）→ 🧠 XGBoost 预估 → 📤 利润得分</p></div>
+<div class="card"><h4>📈 需求维度</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 搜索量 / 转化率 / 趋势加速度（趋势洞察：品类增速排名）→ 🧠 需求模型 → 📤 需求得分</p></div>
+<div class="card"><h4>⚔️ 竞争强度</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 竞品数量 / 价格带饱和度 / 评论壁垒（竞品拆解：SWOT + 风格归类）→ 🧠 竞争模型 → 📤 竞争得分</p></div>
+<div class="card"><h4>🔗 供应链风险</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 供应商数量 / 交期 / 起订量（← 1688 + 行业数据）→ 🧠 风险评估 → 📤 供应链得分</p></div>
 </div>
-<div class="mt-l"><p class="dim" style="text-align:center;font-size:14px">🧠 <b>模型</b>：TOPSIS 综合排序 + DeepFM 推荐 + SHAP 特征解释 · 🤖 <b>每日推送</b>：Top 10 潜力爆品 + AI 选品理由</p></div>
+<div class="mt-m"><p class="dim" style="text-align:center;font-size:14px"><b>综合决策</b>：📤 <b>最终产出</b>：一份带理由的每日选品清单，你只需要审核拍板</p></div>
 <div class="pipeline mt-m" style="display:flex;justify-content:center;gap:8px;align-items:center;font-size:12px"><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">① 市场洞察</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">② 竞品拆解</span><span style="color:var(--text-3)">→</span><span class="pill pill-accent" style="font-size:12px">③ 智能选品</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">④ 动态定价</span></div>
 <div class="deck-footer"><span class="dim2">产品研发</span><span>6 / 23</span></div>
 <div class="notes">选品不靠直觉。我们建立四维评分体系：利润、需求、竞争、供应链。每个维度独立打分，TOPSIS综合排序。DeepFM模型每天推荐Top10潜力爆品，每个推荐都附带AI生成的选品理由。关键是要让买手理解"为什么这个品会爆"——SHAP值解释每个特征的贡献。</div>
@@ -197,7 +231,7 @@
 <section class="slide" data-title="AI商品图与视频">
 <p class="kicker">01 · 视觉内容生成</p>
 <h2 class="h2">从一张白底图到全渠道素材</h2>
-<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
 <div class="card"><h4>🖼️ AI 商品图流水线</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>SAM2</b> 自动抠图 → <b>ControlNet</b> Canny+Depth 精准控图 → <b>SDXL</b> 场景融合<br>🔧 ComfyUI 工作流一键跑百张 · Real-ESRGAN 超分辨率<br>📝 "Product photography of 运动鞋, on sunlit wooden deck, 8K"</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">白底→场景</span><span class="pill" style="font-size:11px">多尺寸输出</span><span class="pill" style="font-size:11px">虚拟试穿</span></div></div>
 <div class="card"><h4>🎬 AI 短视频自动生成</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>SVD</b> 多角度图→360°旋转视频 → <b>CosyVoice</b> AI 配音 → <b>CapCut API</b> 字幕叠加<br>🔧 FFmpeg 一键合成：画面+配音+字幕+BGM<br>📝 "5条字幕·每条约10字·节奏由快到慢·结尾CTA"</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">9:16 竖版</span><span class="pill" style="font-size:11px">爆款模板</span><span class="pill" style="font-size:11px">AI 配音</span></div></div>
 </div>
@@ -244,7 +278,7 @@
 <section class="slide" data-title="需求预测引擎">
 <p class="kicker">01 · 需求预测引擎</p>
 <h2 class="h2">多因素融合，让预测不再是"拍脑袋"</h2>
-<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
 <div class="card"><h4>🧠 Temporal Fusion Transformer</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>输入特征</b>：历史销量 + 促销标签/折扣深度 + 城市天气 + 节假日/大促日 + 社媒搜索指数<br><b>输出</b>：未来30天日维度预测（含置信区间）<br><b>对比基线</b>：Prophet 做季节性分解，TFT 做多变量复杂融合</p></div>
 <div class="card"><h4>📊 分层预测策略</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>爆款</b>（日均>100件）：TFT / DeepAR 日预测<br><b>腰部门</b>（10-100件）：LightGBM 周预测<br><b>长尾</b>（<10件）：Croston 间歇需求模型 + 相似品聚类借用<br>预测-实际偏差每日回流 → 在线更新</p></div>
 </div>
@@ -267,7 +301,7 @@
 <section class="slide" data-title="智能补货与物流">
 <p class="kicker">03 · 智能补货 & 仓储物流</p>
 <h2 class="h2">从补货触发到包裹配送的 AI 全链路</h2>
-<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
 <div class="card"><h4>📦 智能补货系统</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>动态再订货点</b> = 日均需求 × 平均交期 + 安全库存<br>每日凌晨自动计算 → 跌破订货点即生成补货草稿 → 采购审批 → 一键下单<br><b>多SKU合并补货</b>：EOQ扩展 + 阶梯运费优化<br><b>贝叶斯更新</b>：每日更新需求分布先验</p></div>
 <div class="card"><h4>🚚 仓储物流优化</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>蚁群算法</b>：多拣货员协同路径优化 → 总行走距离最小<br><b>XGBoost</b>：快递线路准时率/破损率预测 → 智能选快递<br><b>退货预测</b>：订单生成时即预估退货概率 → 高退货订单提前干预<br><b>逆向物流</b>：退货商品智能分级 → 二次销售/翻新/报废</p></div>
 </div>
@@ -315,7 +349,7 @@
 <section class="slide" data-title="售前售后场景">
 <p class="kicker">02 · 服务场景</p>
 <h2 class="h2">售前懂需求，售后解问题</h2>
-<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
 <div class="card"><h4>🛍️ 售前：智能推荐 & 商品对比</h4><div style="font-size:13px;line-height:1.7"><p class="dim" style="margin:4px 0"><b>双塔召回</b>：用户画像 + 浏览历史 → Top50 候选</p><p class="dim" style="margin:4px 0"><b>DeepFM 精排</b>：Top5 最优推荐</p><p class="dim" style="margin:4px 0"><b>LLM 推荐理由</b>：个性化生成，让用户感到"你懂我"</p><p class="dim" style="margin:4px 0"><b>商品对比</b>：全维度参数 + 好评率 + 差评高频词 → 一句话结论</p></div></div>
 <div class="card"><h4>🔧 售后：退换货 & 投诉处理</h4><div style="font-size:13px;line-height:1.7"><p class="dim" style="margin:4px 0"><b>自动退货</b>：查订单状态 → 判断退货资格 → 发送退货码</p><p class="dim" style="margin:4px 0"><b>物流异常</b>：48h无更新自动标记 → 丢件确认 → 重发/退款</p><p class="dim" style="margin:4px 0"><b>投诉分级</b>：L1 AI处理 / L2 AI+券 / L3 转人工 / L4 秒级升级主管</p><p class="dim" style="margin:4px 0"><b>转人工</b>：自动生成上下文摘要 → 坐席秒懂前因后果</p></div></div>
 </div>
@@ -326,7 +360,7 @@
 <section class="slide" data-title="多语言与知识库">
 <p class="kicker">03 · 全球化 & 持续进化</p>
 <h2 class="h2">服务全球，越用越聪明</h2>
-<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
 <div class="card"><h4>🌐 50+ 语种实时翻译</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>NLLB-200</b>：Meta 开源 200 语种翻译 · 离线部署<br><b>GPT-4o 本地化改写</b>：非直译，日语敬语/英语短句/阿拉伯语RTL<br><b>文化适配滤镜</b>：节日禁忌/颜色符号/沟通风格自动检测</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">日语：です・ます体</span><span class="pill" style="font-size:11px">美式：benefit 驱动</span><span class="pill" style="font-size:11px">中东：关系优先</span></div></div>
 <div class="card"><h4>🧠 知识库 & 持续学习闭环</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>知识图谱</b>：Neo4j + GraphRAG · 商品→属性→场景自动构建<br><b>数据回流</b>：低满意对话 → 人工标注 → LoRA 微调 → A/B测试<br><b>情感分析</b>：实时监测用户情绪 → 主动优化话术</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">Neo4j 图数据库</span><span class="pill" style="font-size:11px">LoRA 高效微调</span><span class="pill" style="font-size:11px">RLHF 奖励模型</span></div></div>
 </div>
