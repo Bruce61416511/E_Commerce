@@ -205,8 +205,8 @@
 <p class="kicker">04 · 动态定价 & 案例</p>
 <h2 class="h2">选好品只是第一步，让价格随市场呼吸</h2>
 <div class="grid g2 mt-l" style="align-items:start">
-<div><div class="card mb-m"><h4>🧠 强化学习定价智能体</h4><p class="dim" style="font-size:13px;margin:0">DQN 训练：状态 = 库存/竞品价格/时间 · 动作 = 调价幅度 · 奖励 = 利润。每15分钟输出调价建议 → 人工审核 → 自动执行。</p></div>
-<div class="card"><h4>📐 多约束优化</h4><p class="dim" style="font-size:13px;margin:0">Max(利润) - 惩罚(库存积压/缺货)。竞品价格实时接入、促销日历预埋、阶梯调价策略。每日生成调价日报。</p></div></div>
+<div><div class="card mb-m"><h4>🧠 DQN 智能体：学会怎么调</h4><p class="dim" style="font-size:13px;margin:0"><b>🔧 训练阶段</b>：在模拟环境试错百万次<br>· 看什么：库存 / 竞品价格 / 时间 / 季节 / 促销节点 / 成本底线 / 产品阶段<br>· 做什么：涨 5 块？降 10 块？不动？<br>· 奖什么：利润高加分，积压扣分 → 学会最佳策略<br><br><b>📤 上线运行</b>：每 15 分钟输出调价建议 → 人工审核 → 自动执行</p></div>
+<div class="card"><h4>📐 约束规则：保证不乱调</h4><p class="dim" style="font-size:13px;margin:0"><b>🔧 策略设定</b><br>· 目标：利润最大化<br>· 约束：不积压 / 不缺货 / 不偏离竞品太多<br>· 输入：竞品实时价格 + 促销日历<br>· 策略：阶梯调价（日常 / 活动 / 清仓 三档）<br><br><b>📤 上线运行</b>：每日自动生成调价日报</p></div></div>
 <div class="card card-outline" style="border-color:var(--good);background:var(--grad-soft)">
 <p class="kicker" style="color:var(--good)">📊 案例：某服饰品牌</p>
 <div class="row" style="gap:24px;align-items:baseline"><div><span class="h1" style="color:var(--good);font-size:64px;line-height:1">+40%</span><p class="dim" style="margin:0;font-size:13px">选品命中率提升</p></div><div><span class="h1" style="color:var(--good);font-size:64px;line-height:1">-25%</span><p class="dim" style="margin:0;font-size:13px">滞销率下降</p></div></div>
@@ -218,7 +218,81 @@
 <div class="notes">定价不是拍脑袋，是强化学习智能体在博弈。DQN Agent 在仿真环境里训练了上百万次，学会了什么时机调价、调多少。关键设计：每15分钟出建议但人工审核——AI做分析，人做决策。案例数据：选品命中率+40%，滞销率-25%。</div>
 </section>
 
-<section class="slide tc center" data-title="内容创建">
+
+
+
+<section class="slide tc center" data-title="工具落地">
+<div style="max-width:780px;margin:0 auto">
+<p class="kicker anim-fade-down" data-anim="fade-down">工具落地</p>
+<h1 class="h1 anim-rise-in" data-anim="rise-in" style="font-size:52px"><span class="gradient-text">AI 全链路</span>，两个入口</h1>
+<div class="divider-accent" style="margin:24px auto"></div>
+<div class="grid g2 mt-l" style="gap:20px;max-width:720px;margin:24px auto 0">
+<div class="card"><div style="font-size:40px;margin:0 0 8px">🌍</div><h4 style="margin:0 0 4px">Accio</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0">阿里国际站 B2B AI 搜索引擎<br>外国人，找中国供应商进货<br>海外批发商 · 零售店老板 · 跨境卖家<br><a href="https://www.accio.com/" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none">www.accio.com →</a></p></div>
+<div class="card"><div style="font-size:40px;margin:0 0 8px">🦐</div><h4 style="margin:0 0 4px">遨虾 AlphaShop</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0">1688 跨境 AI 智能体<br>中国人，找国内货源出海<br>Amazon · TikTok · Shopee 卖家<br><a href="https://www.alphashop.cn" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none">www.alphashop.cn →</a></p></div>
+</div>
+<p class="dim mt-m" style="text-align:center;font-size:14px">同一个阿里生态，同一套方法论 — 市场洞察 · 竞品拆解 · 智能选品 · 动态定价</p>
+</div>
+<div class="notes">Accio 是阿里国际站的 B2B AI 搜索引擎，2024年11月推出，定位个人采购助理，通过多轮对话帮用户搜索商品和匹配供应商。遨虾 AlphaShop 是 1688 的跨境 AI 智能体，帮中国卖家完成选品、采购和供应链管理。两个产品分别服务跨境贸易的两端。</div>
+</section>
+
+<section class="slide" data-title="Accio">
+<p class="kicker">工具 ① · Accio</p>
+<h2 class="h2">Accio：外国人，找中国供应商进货</h2>
+<p class="dim" style="margin:0;font-size:14px">阿里国际站 B2B AI 搜索引擎 · 2024年11月推出 · 海外批发商 / 零售店老板 / 跨境卖家</p>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:10px">
+
+<div class="card"><div class="row" style="align-items:flex-start"><span class="pill pill-accent" style="flex-shrink:0;margin-top:2px">①</span><div style="flex:1"><h4 style="margin:0 0 6px">市场趋势洞察</h4><p class="dim" style="margin:0;font-size:13px">📥 全球 200+ 国家热销品类 + 买家搜索趋势（Accio 平台数据）→ 🧠 AI 趋势分析 → 📤 热门品类清单 + 市场机会排名</p></div></div></div>
+
+<div class="card"><div class="row" style="align-items:flex-start"><span class="pill pill-accent" style="flex-shrink:0;margin-top:2px">②</span><div style="flex:1"><h4 style="margin:0 0 6px">竞品数据拆解</h4><p class="dim" style="margin:0;font-size:13px">📥 竞品价格 / 销量 / 评价 / 采购商画像（Accio 平台内数据）→ 🧠 AI 竞品画像 → 📤 差异化采购策略 + 供应商匹配</p></div></div></div>
+
+<div class="card"><div class="row" style="align-items:flex-start"><span class="pill pill-accent" style="flex-shrink:0;margin-top:2px">③</span><div style="flex:1"><h4 style="margin:0 0 6px">智能选品 + 动态定价 + 全链路执行</h4><p class="dim" style="margin:0;font-size:13px">📥 趋势 + 竞品 + 供应商报价 → 🧠 四维评分 + AI 定价 → 📤 选品推荐 + 报价策略 + 利润预测 + 一键采购</p></div></div></div>
+
+<div style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);border-radius:12px;padding:20px 24px;margin-top:4px;border:1px solid rgba(100,140,255,0.25)">
+<h4 style="margin:0 0 10px;color:#8ab4f8;font-size:16px">🧠 不只是搜索 — Accio 的智能体团队</h4>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+<span style="background:rgba(138,180,248,0.15);color:#aecbfa;padding:4px 10px;border-radius:20px;font-size:12px;border:1px solid rgba(138,180,248,0.3)">电商专家</span><span style="background:rgba(138,180,248,0.15);color:#aecbfa;padding:4px 10px;border-radius:20px;font-size:12px;border:1px solid rgba(138,180,248,0.3)">网店运营</span><span style="background:rgba(138,180,248,0.15);color:#aecbfa;padding:4px 10px;border-radius:20px;font-size:12px;border:1px solid rgba(138,180,248,0.3)">一件代发</span><span style="background:rgba(138,180,248,0.15);color:#aecbfa;padding:4px 10px;border-radius:20px;font-size:12px;border:1px solid rgba(138,180,248,0.3)">内容创作</span><span style="background:rgba(138,180,248,0.15);color:#aecbfa;padding:4px 10px;border-radius:20px;font-size:12px;border:1px solid rgba(138,180,248,0.3)">数据分析</span>
+</div>
+<p style="font-size:13px;line-height:1.7;margin:0;color:rgba(255,255,255,0.75)">每个智能体专精一个业务场景，自动拆解任务、调用插件、协同执行。<br>🔌 <b style="color:#8ab4f8">插件生态</b>：读取文件 · 运行代码 · 连接业务系统 · 一键发布</p>
+</div>
+
+</div>
+<div class="deck-footer"><span class="dim2">工具链</span><span>8 / 27</span></div>
+<div class="notes">Accio 是阿里国际站的 AI 平台，定位是"全球中小企业的一站式跨境电商解决方案"。核心能力：买家从发现市场机会、分析竞争对手、匹配供应商、到定价和采购，全链路 AI 自动化。不需要在多个工具之间跳转。</div>
+</section>
+
+<section class="slide" data-title="遨虾">
+<p class="kicker">工具 ② · 遨虾 AlphaShop</p>
+<h2 class="h2">遨虾：中国人，找国内货源出海</h2>
+<p class="dim" style="margin:0;font-size:14px">1688 跨境 AI 智能体 · Amazon / TikTok / Shopee 卖家 · 找工厂 · 选品 · 出海</p>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:10px">
+
+<div class="card"><div class="row" style="align-items:flex-start"><span class="pill pill-accent" style="flex-shrink:0;margin-top:2px">①</span><div style="flex:1"><h4 style="margin:0 0 6px">市场趋势洞察</h4><p class="dim" style="margin:0;font-size:13px">📥 Amazon / TikTok / Shopee 多平台热销数据（遨虾采集）→ 🧠 AI 趋势分析 + 增速排序 → 📤 各平台爆品趋势 + 切入时机建议</p></div></div></div>
+
+<div class="card"><div class="row" style="align-items:flex-start"><span class="pill pill-accent" style="flex-shrink:0;margin-top:2px">②</span><div style="flex:1"><h4 style="margin:0 0 6px">竞品数据拆解</h4><p class="dim" style="margin:0;font-size:13px">📥 竞品销量 / 定价 / 评论 / 广告投放 / 供应链（遨虾深度采集）→ 🧠 AI 竞品拆解 → 📤 SWOT + 差异化策略 + 1688 工厂匹配</p></div></div></div>
+
+<div class="card"><div class="row" style="align-items:flex-start"><span class="pill pill-accent" style="flex-shrink:0;margin-top:2px">③</span><div style="flex:1"><h4 style="margin:0 0 6px">智能选品 + 动态定价 + 一键上架</h4><p class="dim" style="margin:0;font-size:13px">📥 市场数据 + 竞品数据 + 1688 工厂报价 → 🧠 四维评分 + AI 定价模型 → 📤 选品推荐 + 定价方案 + 运营策略 + 一键上架</p></div></div></div>
+
+</div>
+<div class="deck-footer"><span class="dim2">工具链</span><span>9 / 27</span></div>
+<div class="notes">遨虾 AlphaShop 是 1688 推出的跨境 AI 智能体，定位是"帮中国卖家一键出海"。核心能力：打通 1688 货源和海外平台，从选品、定价、找工厂、到上架的全链路 AI 决策 + 执行。</div>
+</section>
+
+<section class="slide tc center" data-title="工具联动">
+<div style="max-width:780px;margin:0 auto">
+<p class="kicker anim-fade-down" data-anim="fade-down">联动全景</p>
+<h1 class="h1 anim-rise-in" data-anim="rise-in" style="font-size:48px">同一个阿里生态<br><span class="gradient-text">同一套 AI 方法论</span></h1>
+<div class="divider-accent" style="margin:24px auto"></div>
+<div class="grid g2 mt-l" style="gap:20px;max-width:750px;margin:0 auto">
+<div class="card"><h4>🌍 Accio（国际站）</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0">全球中小企业<br>一站式 AI 平台<br>市场洞察 → 竞品拆解 → 选品 → 定价<br>覆盖：采购全链路自动化</p></div>
+<div class="card"><h4>🦐 遨虾 AlphaShop（1688）</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0">中国卖家 & 工厂<br>AI 智能体<br>市场洞察 → 竞品拆解 → 选品 → 定价 → 上架<br>覆盖：出海全链路自动化</p></div>
+</div>
+<div class="mt-l" style="text-align:center;max-width:650px;margin:20px auto 0;background:var(--grad-soft);padding:20px;border-radius:8px">
+<p style="margin:0;font-size:15px;line-height:1.8"><b>同一套方法论，两个产品落地</b><br>趋势识别 · 竞品分析 · 选品评分 · 定价优化<br><b>Accio 帮全球买家找到中国好货<br>遨虾帮中国卖家把货卖向全球</b></p>
+</div>
+</div>
+<div class="notes">Accio（阿里国际站 B2B AI 搜索引擎，2024年11月推出）和遨虾 AlphaShop（1688 跨境 AI 智能体）是阿里跨境生态的两个独立产品。Accio 以对话形式帮全球买家搜索商品和匹配供应商，遨虾帮中国卖家完成 AI 选品和供应链管理。两者互补，覆盖跨境贸易的供需两端。</div>
+</section>
+<section class="slide" data-title="内容创建">
 <div style="max-width:780px;margin:0 auto">
 <p class="kicker anim-fade-down" data-anim="fade-down">Part · 02</p>
 <h1 class="h1 anim-rise-in" data-anim="rise-in" style="font-size:96px">内容<span class="gradient-text">创建</span></h1>
@@ -235,7 +309,7 @@
 <div class="card"><h4>🖼️ AI 商品图流水线</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>SAM2</b> 自动抠图 → <b>ControlNet</b> Canny+Depth 精准控图 → <b>SDXL</b> 场景融合<br>🔧 ComfyUI 工作流一键跑百张 · Real-ESRGAN 超分辨率<br>📝 "Product photography of 运动鞋, on sunlit wooden deck, 8K"</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">白底→场景</span><span class="pill" style="font-size:11px">多尺寸输出</span><span class="pill" style="font-size:11px">虚拟试穿</span></div></div>
 <div class="card"><h4>🎬 AI 短视频自动生成</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>SVD</b> 多角度图→360°旋转视频 → <b>CosyVoice</b> AI 配音 → <b>CapCut API</b> 字幕叠加<br>🔧 FFmpeg 一键合成：画面+配音+字幕+BGM<br>📝 "5条字幕·每条约10字·节奏由快到慢·结尾CTA"</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">9:16 竖版</span><span class="pill" style="font-size:11px">爆款模板</span><span class="pill" style="font-size:11px">AI 配音</span></div></div>
 </div>
-<div class="deck-footer"><span class="dim2">内容创建</span><span>9 / 23</span></div>
+<div class="deck-footer"><span class="dim2">内容创建</span><span>13 / 27</span></div>
 <div class="notes">商品图流水线的关键是 ComfyUI——一个节点式工作流工具。从抠图到场景融合到多尺寸输出，一次配置，批量跑。视频端用 SVD 做360°旋转展示，CapCut API 自动加字幕，CosyVoice AI配音。一个人一天能产出过去一个团队一周的量。</div>
 </section>
 
@@ -247,7 +321,7 @@
 <div class="card"><div class="h2" style="margin:0;font-size:40px">📝</div><h4>详情页文案</h4><p class="dim" style="font-size:13px">商品参数+场景+竞品好评词+差评避坑 → LLM 生成五大模块：痛点→方案→卖点→规格→场景 → 3版候选</p><p class="dim" style="font-size:12px;margin:8px 0 0;font-style:italic">"温暖治愈风格，强调懒人友好"</p></div>
 <div class="card"><div class="h2" style="margin:0;font-size:40px">🌐</div><h4>多语言本地化</h4><p class="dim" style="font-size:13px">DeepL + GPT-4o 本地化改写（非直译）→ 文化适配检查（颜色禁忌/宗教敏感词）→ 日语敬语·英语短句·阿拉伯语 RTL</p><p class="dim" style="font-size:12px;margin:8px 0 0;font-style:italic">"美式电商风格：强调 benefit 而非 feature"</p></div>
 </div>
-<div class="deck-footer"><span class="dim2">内容创建</span><span>10 / 23</span></div>
+<div class="deck-footer"><span class="dim2">内容创建</span><span>14 / 27</span></div>
 <div class="notes">文案的三个层次：标题解决"搜得到"，详情解决"看得懂想买"，多语言解决"卖全球"。核心技巧——不是机器翻译，是本地化改写。日语用敬语，英语短句驱动，阿拉伯语RTL适配。每个SKU生成3个版本，用多臂老虎机算法自动A/B测试。</div>
 </section>
 
@@ -262,7 +336,7 @@
 <div style="text-align:center"><span class="h1 gradient-text" style="font-size:88px;line-height:1">-80%</span><p class="dim" style="margin:4px 0">人力成本降低</p><p class="dim" style="font-size:12px;margin:0">AI 生成 3000+ SKU 素材<br>ComfyUI 批量流水线 + CapCut 模板化剪辑<br>1人代替原5人内容团队</p></div>
 </div>
 </div>
-<div class="deck-footer"><span class="dim2">内容创建</span><span>11 / 23</span></div>
+<div class="deck-footer"><span class="dim2">内容创建</span><span>15 / 27</span></div>
 <div class="notes">内容审核不能省。三层防线：先规则过滤明显违规词，再用GPT-4V看图片有没有侵权logo，最后LLM做语义级别的隐性违规判断。A/B测试用多臂老虎机自动调权——不需要等统计学显著，每天实时优化流量分配。案例：3000+SKU，1人干5人的活，成本降80%。</div>
 </section>
 <section class="slide tc center" data-title="供应链">
@@ -282,7 +356,7 @@
 <div class="card"><h4>🧠 Temporal Fusion Transformer</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>输入特征</b>：历史销量 + 促销标签/折扣深度 + 城市天气 + 节假日/大促日 + 社媒搜索指数<br><b>输出</b>：未来30天日维度预测（含置信区间）<br><b>对比基线</b>：Prophet 做季节性分解，TFT 做多变量复杂融合</p></div>
 <div class="card"><h4>📊 分层预测策略</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>爆款</b>（日均>100件）：TFT / DeepAR 日预测<br><b>腰部门</b>（10-100件）：LightGBM 周预测<br><b>长尾</b>（<10件）：Croston 间歇需求模型 + 相似品聚类借用<br>预测-实际偏差每日回流 → 在线更新</p></div>
 </div>
-<div class="deck-footer"><span class="dim2">供应链</span><span>13 / 23</span></div>
+<div class="deck-footer"><span class="dim2">供应链</span><span>17 / 27</span></div>
 <div class="notes">TFT是目前时序预测的SOTA模型——它能同时处理销量、促销、天气、节假日等多种因素，输出未来30天的预测和置信区间。分层预测的关键：爆款要日粒度精细管理，长尾商品用间歇需求模型，不要一刀切。</div>
 </section>
 
@@ -294,7 +368,7 @@
 <div class="card"><div class="row" style="gap:16px;align-items:center"><span style="font-size:32px;flex-shrink:0">🔄</span><div style="flex:1"><h4 style="margin:0">多仓智能调拨</h4><p class="dim" style="margin:0;font-size:13px">整数规划求解最优调拨方案：最小化运输成本 + 库存持有成本 + 缺货损失</p></div><span class="pill">OR-Tools</span></div></div>
 <div class="card"><div class="row" style="gap:16px;align-items:center"><span style="font-size:32px;flex-shrink:0">⚠️</span><div style="flex:1"><h4 style="margin:0">滞销三级预警 + 自动清仓方案</h4><p class="dim" style="margin:0;font-size:13px">黄色→橙色→红色逐级预警 · LLM 生成清仓方案：折扣阶梯 / 捆绑搭配 / 渠道建议</p></div><span class="pill pill-accent">GPT-4o</span></div></div>
 </div>
-<div class="deck-footer"><span class="dim2">供应链</span><span>14 / 23</span></div>
+<div class="deck-footer"><span class="dim2">供应链</span><span>18 / 27</span></div>
 <div class="notes">库存管理的三个核心问题：1) 安全库存多少——用Monte Carlo仿真，不是套公式；2) 多仓之间怎么调拨——运筹优化，目标是最小化总成本；3) 滞销了怎么办——三级预警机制，LLM自动出清仓方案。重点：滞销预警要早，库龄超过90天基本就亏了。</div>
 </section>
 
@@ -305,7 +379,7 @@
 <div class="card"><h4>📦 智能补货系统</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>动态再订货点</b> = 日均需求 × 平均交期 + 安全库存<br>每日凌晨自动计算 → 跌破订货点即生成补货草稿 → 采购审批 → 一键下单<br><b>多SKU合并补货</b>：EOQ扩展 + 阶梯运费优化<br><b>贝叶斯更新</b>：每日更新需求分布先验</p></div>
 <div class="card"><h4>🚚 仓储物流优化</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>蚁群算法</b>：多拣货员协同路径优化 → 总行走距离最小<br><b>XGBoost</b>：快递线路准时率/破损率预测 → 智能选快递<br><b>退货预测</b>：订单生成时即预估退货概率 → 高退货订单提前干预<br><b>逆向物流</b>：退货商品智能分级 → 二次销售/翻新/报废</p></div>
 </div>
-<div class="deck-footer"><span class="dim2">供应链</span><span>15 / 23</span></div>
+<div class="deck-footer"><span class="dim2">供应链</span><span>19 / 27</span></div>
 <div class="notes">补货的难点不是算量，是算时机——哪些SKU现在必须补，哪些可以等一等和其他品一起下单省运费。多SKU合并补货的优化本质上是在"早补货多占库存成本"和"晚补货合并省运费"之间找最优平衡。物流端，拣货路径用蚁群算法，包裹选快递用ML预测线路质量。</div>
 </section>
 
@@ -320,7 +394,7 @@
 <p class="lede mt-l" style="margin:16px auto 0">TFT 需求预测 + 动态安全库存 + 多仓智能调拨 → <b style="color:var(--good)">周转效率提升 38%</b></p>
 <div class="row mt-m" style="justify-content:center;gap:24px"><span class="pill" style="font-size:12px">缺货率降至 2.1%</span><span class="pill pill-accent" style="font-size:12px">滞销占比 -18%</span><span class="pill" style="font-size:12px">物流成本 -12%</span></div>
 </div>
-<div class="deck-footer"><span class="dim2">供应链</span><span>16 / 23</span></div>
+<div class="deck-footer"><span class="dim2">供应链</span><span>20 / 27</span></div>
 <div class="notes">库存周转从45天到28天，意味着同一笔资金一年能多转近3圈。这背后是TFT预测模型让补货更精准、动态安全库存不囤积、多仓调拨把滞销仓的货调到缺货仓。</div>
 </section>
 
@@ -342,7 +416,7 @@
 <div class="card"><div class="row" style="align-items:flex-start;gap:14px"><span class="pill pill-accent" style="flex-shrink:0">意图识别</span><div style="flex:1"><h4 style="margin:0">26 类电商意图分类 + 槽位填充</h4><p class="dim" style="margin:2px 0 0;font-size:12px">查物流 / 退换货 / 改地址 / 催发货 / 商品咨询 / 议价 / 投诉 · 自动抽取订单号/商品名/日期/金额</p></div></div></div>
 <div class="card"><div class="row" style="align-items:flex-start;gap:14px"><span class="pill pill-accent" style="flex-shrink:0">多模态</span><div style="flex:1"><h4 style="margin:0">文本 + 语音 + 图片统一交互</h4><p class="dim" style="margin:2px 0 0;font-size:12px">Whisper ASR → 引擎处理 → CosyVoice TTS · GPT-4V 识别破损商品图 → 自动判断赔付金额</p></div></div></div>
 </div>
-<div class="deck-footer"><span class="dim2">AI智能客服</span><span>18 / 23</span></div>
+<div class="deck-footer"><span class="dim2">AI智能客服</span><span>22 / 27</span></div>
 <div class="notes">传统客服机器人是关键词if-else，大模型客服是真正理解用户意图。我们用LangGraph编排状态图：用户说什么→意图是什么→需要什么信息→怎么解决→用户满意吗。Function Calling让AI能直接查订单、发起退款。多模态支持意味着用户拍张破损商品图，AI能直接判断严重程度和赔付建议。</div>
 </section>
 
@@ -353,7 +427,7 @@
 <div class="card"><h4>🛍️ 售前：智能推荐 & 商品对比</h4><div style="font-size:13px;line-height:1.7"><p class="dim" style="margin:4px 0"><b>双塔召回</b>：用户画像 + 浏览历史 → Top50 候选</p><p class="dim" style="margin:4px 0"><b>DeepFM 精排</b>：Top5 最优推荐</p><p class="dim" style="margin:4px 0"><b>LLM 推荐理由</b>：个性化生成，让用户感到"你懂我"</p><p class="dim" style="margin:4px 0"><b>商品对比</b>：全维度参数 + 好评率 + 差评高频词 → 一句话结论</p></div></div>
 <div class="card"><h4>🔧 售后：退换货 & 投诉处理</h4><div style="font-size:13px;line-height:1.7"><p class="dim" style="margin:4px 0"><b>自动退货</b>：查订单状态 → 判断退货资格 → 发送退货码</p><p class="dim" style="margin:4px 0"><b>物流异常</b>：48h无更新自动标记 → 丢件确认 → 重发/退款</p><p class="dim" style="margin:4px 0"><b>投诉分级</b>：L1 AI处理 / L2 AI+券 / L3 转人工 / L4 秒级升级主管</p><p class="dim" style="margin:4px 0"><b>转人工</b>：自动生成上下文摘要 → 坐席秒懂前因后果</p></div></div>
 </div>
-<div class="deck-footer"><span class="dim2">AI智能客服</span><span>19 / 23</span></div>
+<div class="deck-footer"><span class="dim2">AI智能客服</span><span>23 / 27</span></div>
 <div class="notes">售前的核心能力是推荐——不是随机推，是基于用户画像+实时对话的精准匹配。售后的关键是分级处理：简单问题AI自己解决，复杂问题带着上下文摘要无缝转给人工。投诉分级尤其重要——L4级别的舆情风险要秒级升级到主管，不能拖。</div>
 </section>
 
@@ -364,7 +438,7 @@
 <div class="card"><h4>🌐 50+ 语种实时翻译</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>NLLB-200</b>：Meta 开源 200 语种翻译 · 离线部署<br><b>GPT-4o 本地化改写</b>：非直译，日语敬语/英语短句/阿拉伯语RTL<br><b>文化适配滤镜</b>：节日禁忌/颜色符号/沟通风格自动检测</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">日语：です・ます体</span><span class="pill" style="font-size:11px">美式：benefit 驱动</span><span class="pill" style="font-size:11px">中东：关系优先</span></div></div>
 <div class="card"><h4>🧠 知识库 & 持续学习闭环</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>知识图谱</b>：Neo4j + GraphRAG · 商品→属性→场景自动构建<br><b>数据回流</b>：低满意对话 → 人工标注 → LoRA 微调 → A/B测试<br><b>情感分析</b>：实时监测用户情绪 → 主动优化话术</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">Neo4j 图数据库</span><span class="pill" style="font-size:11px">LoRA 高效微调</span><span class="pill" style="font-size:11px">RLHF 奖励模型</span></div></div>
 </div>
-<div class="deck-footer"><span class="dim2">AI智能客服</span><span>20 / 23</span></div>
+<div class="deck-footer"><span class="dim2">AI智能客服</span><span>24 / 27</span></div>
 <div class="notes">多语言不是翻译，是本地化。《亲，这款超好用的》翻成日语不能直接说"超好用"，要用敬语表达品质感。知识库持续学习：每天收集低满意度对话→人工标注理想回复→每月LoRA微调→A/B测试→全量上线。这是客服质量的飞轮。</div>
 </section>
 
@@ -378,7 +452,7 @@
 <p class="lede mt-l" style="margin:16px auto 0">GPT-4o 多轮对话 + RAG 知识库 + 26 类意图识别 → <b style="color:var(--accent-2)">7×24 小时无间断服务</b></p>
 <div class="row mt-m" style="justify-content:center;gap:24px"><span class="pill" style="font-size:12px">平均响应 < 3 秒</span><span class="pill pill-accent" style="font-size:12px">50+ 语种覆盖</span><span class="pill" style="font-size:12px">用户满意度 4.2/5</span></div>
 </div>
-<div class="deck-footer"><span class="dim2">AI智能客服</span><span>21 / 23</span></div>
+<div class="deck-footer"><span class="dim2">AI智能客服</span><span>25 / 27</span></div>
 <div class="notes">85%解决率意味着只有15%的问题需要人工介入。关键数据：响应时间不到3秒，传统人工客服平均响应45秒。50+语种覆盖让一个客服团队服务全球。用户满意度4.2/5，说明AI客服不是"能用"，而是"好用"。</div>
 </section>
 
@@ -399,7 +473,7 @@
 <p class="lede" style="margin:16px auto">AI 不是替代人，而是让团队聚焦高价值决策<br><span class="dim" style="font-size:15px">机器做执行与预测，人做判断与创新</span></p>
 <div class="card card-outline mt-l" style="max-width:560px;margin:20px auto 0;border-color:var(--accent-2)"><h4 style="color:var(--accent-2);margin:0 0 6px">🔮 未来趋势</h4><p class="dim" style="font-size:13px;margin:0">AI Agent 自主运营店铺 — 选品、定价、投放、客服、补货全链路多 Agent 协作，人类转为"监督者 + 策略制定者"</p></div>
 </div>
-<div class="deck-footer"><span class="dim2">总结</span><span>22 / 23</span></div>
+<div class="deck-footer"><span class="dim2">总结</span><span>26 / 27</span></div>
 <div class="notes">总结一下：四大模块形成完整闭环——选品决定卖什么，内容决定怎么卖，供应链保证卖得好，客服保证卖得久。AI不是替代人，是把人从重复执行中解放出来，专注在策略和创新上。未来的方向是AI Agent自主运营——多个AI Agent协作管理整个店铺，人类只需要做监督和策略。</div>
 </section>
 
