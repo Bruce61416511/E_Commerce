@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="corporate-clean">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>电商AI赋能 — 从数据驱动到智能决策</title>
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../../assets/base.css">
+<link rel="stylesheet" id="theme-link" href="../../assets/themes/corporate-clean.css">
+<link rel="stylesheet" href="../../assets/animations/animations.css">
+</head>
+<body data-themes="corporate-clean,minimal-white,swiss-grid,arctic-cool,editorial-serif" data-theme-base="../../assets/themes/">
+<div class="deck">
+
+<section class="slide" data-title="封面">
+<div class="deck-header"><span class="eyebrow">E-Commerce · 2026</span><span class="eyebrow">AI Empowerment</span></div>
+<div class="anim-stagger-list">
+<p class="kicker">E-Commerce × Artificial Intelligence</p>
+<h1 class="h1 anim-fade-up" data-anim="fade-up">电商<span class="gradient-text">AI 赋能</span></h1>
+<p class="lede" style="text-align:left;font-size:22px;margin-top:8px;font-weight:400;color:var(--text-2)">从数据驱动到智能决策</p>
+<p class="lede">产品研发 · 内容创建 · 供应链 · 智能客服 — AI 重塑电商全链路效率</p>
+<div class="row wrap mt-l"><span class="pill pill-accent">GPT-4o</span><span class="pill">SDXL</span><span class="pill">TFT</span><span class="pill">XGBoost</span><span class="pill">RAG</span></div>
+</div>
+<div class="deck-footer"><span class="dim2">电商AI赋能 · 2026</span><span class="slide-number" data-current="1" data-total="23"></span></div>
+<div class="notes">开场白：大家好，今天分享电商AI赋能。从产品研发、内容创建、供应链和智能客服四个维度，展示AI如何重塑电商全链路效率。每个环节都会涉及具体工具、模型和实践案例。</div>
+</section>
+
+<section class="slide" data-title="目录">
+<p class="eyebrow">Agenda · 目录</p>
+<h2 class="h2">今天讲四件大事</h2>
+<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="card"><div class="row"><div class="h3 dim2" style="width:56px;flex-shrink:0">01</div><div><h4>产品研发</h4><p class="dim">AI 数据分析与智能选品 — 市场洞察 / 竞品拆解 / 动态定价</p></div></div></div>
+<div class="card"><div class="row"><div class="h3 dim2" style="width:56px;flex-shrink:0">02</div><div><h4>内容创建</h4><p class="dim">AI 批量生成图片与视频 — 商品图 / 短视频 / 文案 / 审核</p></div></div></div>
+<div class="card"><div class="row"><div class="h3 dim2" style="width:56px;flex-shrink:0">03</div><div><h4>供应链</h4><p class="dim">AI 预测库存与需求优化 — 需求预测 / 智能补货 / 物流调度</p></div></div></div>
+<div class="card"><div class="row"><div class="h3 dim2" style="width:56px;flex-shrink:0">04</div><div><h4>AI 智能客服</h4><p class="dim">全天候自动化服务 — 多轮对话 / 售前售后 / 多语言全球化</p></div></div></div>
+</div>
+<div class="deck-footer"><span class="dim2">电商AI赋能</span><span>目录</span></div>
+<div class="notes">四部分逻辑：选品决定卖什么 → 内容决定怎么卖 → 供应链保证卖得好 → 客服保证卖得久。这是一个完整的业务闭环。</div>
+</section>
+
+<section class="slide tc center" data-title="产品研发">
+<div style="max-width:780px;margin:0 auto">
+<p class="kicker anim-fade-down" data-anim="fade-down">Part · 01</p>
+<h1 class="h1 anim-rise-in" data-anim="rise-in" style="font-size:96px">产品<span class="gradient-text">研发</span></h1>
+<div class="divider-accent" style="margin:24px auto"></div>
+<p class="lede" style="margin:0 auto">AI 数据分析与智能选品 — 让数据告诉你该卖什么</p>
+</div>
+<div class="notes">第一部分：产品研发。核心命题是"卖什么"。我们将看到AI如何从海量数据中挖掘趋势、拆解竞品、评估选品、优化定价。</div>
+</section>
+
+<section class="slide" data-title="市场趋势洞察">
+<p class="kicker">01 · 市场趋势洞察</p>
+<h2 class="h2">用 AI 看透市场，发现蓝海</h2>
+<button onclick="document.getElementById(&quot;prompt-modal-4&quot;).style.display=&quot;flex&quot;" style="position:absolute;top:16px;right:16px;z-index:100;background:var(--accent);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer;font-weight:600">📋 选品策略 Prompt</button>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:10px">
+
+<div class="card"><div class="row" style="align-items:flex-start"><span class="pill pill-accent" style="flex-shrink:0;margin-top:2px">趋势发现</span><div style="flex:1"><h4 style="margin:0 0 6px">发现上升品类，抓住市场风口</h4><p class="dim" style="margin:0 0 6px;font-size:13px"><b>流程</b>：📥 热搜/销量/社媒数据（🔧 八爪鱼 + Apify + 蝉妈妈 采集）→ 🧠 GPT-4o 趋势分析 → 📤 品类增速排名</p><p class="dim" style="margin:0;font-size:12px;line-height:1.6">① 多源爬取 + 清洗标准化 &nbsp; ② AI 识别上升品类 + 增速排序 &nbsp; ③ 搜索量/转化率/评论热度量化机会</p><p style="margin:4px 0 0;font-size:11px;color:var(--text-3)">📝 <em>"分析近 7 天各平台热搜词 & 销量榜，按增速排序 TOP 10 品类，标注每个品类的搜索量趋势、转化率、评论热度，给出 3 个最值得切入的品类及理由。"</em></p></div></div></div>
+
+<div class="card"><div class="row" style="align-items:flex-start"><span class="pill pill-accent" style="flex-shrink:0;margin-top:2px">需求挖掘</span><div style="flex:1"><h4 style="margin:0 0 6px">从差评里提炼痛点，找到改进方向</h4><p class="dim" style="margin:0 0 6px;font-size:13px"><b>流程</b>：📥 用户评论/口碑数据（🔧 八爪鱼 + 魔镜市场情报 采集）→ 🧠 GPT-4o 痛点提取 → 📤 痛点 × 改进方案</p><p class="dim" style="margin:0;font-size:12px;line-height:1.6">① 因果关联识别关键维度 &nbsp; ② 情景模拟评估改进效果 &nbsp; ③ 构建动态知识库沉淀经验</p><p style="margin:4px 0 0;font-size:11px;color:var(--text-3)">📝 <em>"抓取品类 TOP 20 商品的 1-2 星差评，提取高频痛点，按出现频次排序，归纳为 5-8 个核心需求缺口，每个缺口给出具体的产品改进建议和优先级。"</em></p></div></div></div>
+
+<div class="card"><div class="row" style="align-items:flex-start"><span class="pill pill-accent" style="flex-shrink:0;margin-top:2px">跨界发现</span><div style="flex:1"><h4 style="margin:0 0 6px">从品类关联中，找到意想不到的蓝海</h4><p class="dim" style="margin:0 0 6px;font-size:13px"><b>流程</b>：📥 跨品类购买/关联数据（🔧 八爪鱼 + Apify 采集）→ Neo4j 图谱 + 🧠 GPT-4o 推理 → 📤 跨界机会清单</p><p class="dim" style="margin:0;font-size:12px;line-height:1.6">① 品类共现 + 跨品类购买发现关联 &nbsp; ② AI 推荐跨界方案（如露营 × 咖啡机）&nbsp; ③ 市场规模 + 竞争分析验证可行性</p><p style="margin:4px 0 0;font-size:11px;color:var(--text-3)">📝 <em>"基于跨品类购买数据构建关联图谱，识别与「露营」强关联但当前供给不足的延伸品类，评估每个品类的市场规模、竞争强度和切入难度，输出 TOP 5 蓝海机会。"</em></p></div></div></div>
+
+</div>
+<div class="pipeline mt-m" style="display:flex;justify-content:center;gap:8px;align-items:center;font-size:12px"><span class="pill pill-accent" style="font-size:12px">① 市场洞察</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">② 竞品拆解</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">③ 智能选品</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">④ 动态定价</span></div>
+
+<!-- 提示词弹窗 -->
+<div id="prompt-modal-4" onclick="this.style.display=&quot;none&quot;" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center">
+<div onclick="event.stopPropagation()" style="background:var(--bg);border-radius:12px;padding:28px 32px;max-width:800px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.4);position:relative">
+<button onclick="document.getElementById(&quot;prompt-modal-4&quot;).style.display=&quot;none&quot;" style="position:sticky;top:0;float:right;background:var(--bg-2);border:1px solid var(--line);border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;color:var(--text-3);z-index:1">&times;</button>
+<h2 style="margin:0 0 16px;font-size:22px">📋 选品策略 Prompt</h2>
+<pre style="white-space:pre;font-family:Consolas,'Courier New',monospace;font-size:13px;line-height:1.6;color:var(--text-1);background:var(--bg-2);padding:20px;border-radius:8px;overflow-x:auto;margin:0"># 选品提示词模板（大健康领域）
+
+## 角色
+你是大健康领域的产品策略顾问，需基于多源数据洞察，给出可落地的产品开发建议。
+所有分析需结合 🧠 GPT-4o 深度推理，数据采集通过 🔧 八爪鱼 / Apify / 蝉妈妈 / 魔镜市场情报 完成。
+
+---
+
+## 一、竞品评价分析
+
+| 步骤 | 操作 | 数据来源 | 时间窗口 |
+|------|------|----------|----------|
+| 1 | 抓取核心竞品评价，输出评分分布、高频词、情感极性 | 🔧 八爪鱼 + 魔镜市场情报 | 近 3 个月 |
+| 2 | 提取 TOP 10 负面关键词，对比各平台投诉差异（抖音偏体验、京东偏物流、淘宝偏性价比） | 🧠 GPT-4o 情感分析 + 关键词聚类 | 近 3 个月 |
+| 3 | 计算复购率、差评解决效率、评分变化趋势 → 绘制「竞品弱点 × 机会矩阵」 | 🧠 GPT-4o 数据归纳 | 近 3 个月 |
+
+---
+
+## 二、社媒趋势挖掘
+
+| 步骤 | 操作 | 数据来源 | 时间窗口 |
+|------|------|----------|----------|
+| 4 | 追踪热门话题互动量、内容形式、评论情感极性 | 🔧 蝉妈妈（抖音）+ Apify（TikTok / 小红书） | 近 1 个月 |
+| 5 | 拆解头部 KOL 高互动内容：提取场景化痛点、真实体验故事、专业背书形式 | 🧠 GPT-4o 内容分析 | 近 1 个月 |
+| 6 | 评论聚类分析 → 识别未满足细分需求，输出「需求密度热力图」 | 🧠 GPT-4o 聚类 + 语义归纳 | 近 1 个月 |
+
+---
+
+## 三、搜索意图分析
+
+| 步骤 | 操作 | 数据来源 | 时间窗口 |
+|------|------|----------|----------|
+| 7 | 获取关键词搜索量排名 + 环比增长率，聚焦高增长长尾词（如"即食益生菌"、"抗疲劳零食"、"口服玻尿酸饮品"） | 🔧 Apify（百度/谷歌）+ Google Trends | 近 6 个月 |
+| 8 | 区分搜索意图：信息型 / 交易型 / 新兴趋势 → 搜索漏斗可视化 | 🧠 GPT-4o 意图分类 | 近 6 个月 |
+| 9 | 按年龄、城市线级、消费力细分关键词，交叉生成「人群 × 需求」机会图谱 | 🧠 GPT-4o 多维交叉分析 | 近 6 个月 |
+
+---
+
+## 四、跨界关联发现
+
+| 步骤 | 操作 | 数据来源 | 时间窗口 |
+|------|------|----------|----------|
+| 10 | 构建品类关联图谱：分析用户跨品类购买行为（如"瑜伽垫 → 筋膜枪 → 运动补剂"） | 🔧 Apify + 🧠 Neo4j 图数据库 | 近 6 个月 |
+| 11 | 识别关联品类中的供给空白：强关联 + 低供给 = 蓝海信号 | 🧠 GPT-4o 关联推理 | 近 6 个月 |
+| 12 | 评估跨界可行性：市场规模预估、竞争强度、技术门槛 | 🧠 GPT-4o 机会评估 | — |
+
+---
+
+## 五、最终输出
+
+| # | 产出物 | 内容要求 | 格式示例 |
+|---|--------|----------|----------|
+| 13 | 3-5 个高优先级产品方向 | 核心卖点 + 目标人群画像 + 场景痛点 + 预估市场规模 | 「即食型益生菌果冻 · 瞄准 25-35 岁职场女性 · 痛点：传统粉剂冲泡麻烦 · 预估 ¥2亿+」 |
+| 14 | 差异化定位策略 | 技术壁垒 / 体验创新 / 服务增值点，每个方向给出 1 句话定位语 | 「第一款能放办公桌的益生菌」 |
+| 15 | 竞争态势简析 | 每个方向列出 TOP 3 竞品 + SWOT 要点 | 竞品 A：强势但口味单一 → 机会：多元口味矩阵 |
+| 16 | 市场验证方案 | MVP 测试方法（众筹/私域预售/直播测款）+ 3 个核心跟踪指标 | 测试方式：私域社群 200 人试用 → 指标：首周复购率、NPS、好评关键词分布 |
+| 17 | 18 个月产品路线图建议 | Phase 1 MVP → Phase 2 迭代 → Phase 3 扩品 | 0-3 月：1 款验证 / 3-9 月：3 款矩阵 / 9-18 月：品类扩展 |
+
+---
+
+## 备注
+- 标注数据来源平台，确保权威性
+- 融入消费者行为心理学视角（决策疲劳、锚定效应、社会认同等）
+- 给出资源投入优先级排序（高/中/低）
+- 输出使用 Markdown 表格 + 要点列表，全文不超过 3000 字</pre>
+</div>
+</div>
+<div class="deck-footer"><span class="dim2">产品研发</span><span>4 / 23</span></div>
+<div class="notes">市场趋势洞察不是拍脑袋，是用三条AI探针并行扫描。趋势发现：八爪鱼+蝉妈妈采集各平台热搜数据，GPT-4o分析增速和机会。需求挖掘：八爪鱼+魔镜抓取用户评论，GPT-4o提炼痛点、沉淀知识图谱。跨界发现：用Neo4j构建品类关联图谱，GPT-4o推理跨界机会。三管齐下，360度扫描蓝海。</div>
+</section>
+
+<section class="slide" data-title="竞品数据拆解">
+<p class="kicker">02 · 竞品数据拆解</p>
+<h2 class="h2">知己知彼，AI 自动拆解竞品</h2>
+<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="card"><h4>💰 拆价格：盯住怎么变价</h4><p class="dim" style="font-size:13px">Keepa / 魔镜每日抓标价、券后价、促销标签 → 🧠 Prophet + LSTM 预测 7 天走势 → 异动秒级告警 + 推送调价建议</p></div>
+<div class="card"><h4>👁️ 拆产品：看图识别属性</h4><p class="dim" style="font-size:13px">GPT-4V 识别竞品主图 → 领型 / 袖长 / 面料 / 风格标签 → 🧠 CLIP 风格聚类，自动归类竞品打法</p></div>
+<div class="card"><h4>📊 拆全局：自动出 SWOT 报告（优势·劣势·机会·威胁）</h4><p class="dim" style="font-size:13px">聚合价格 + 属性 + 评论 + 上新数据 → 🧠 GPT-4o 生成结构化 SWOT → 填入 PPT，每周自动推送管理群</p></div>
+<div class="card card-outline" style="border-color:var(--accent-2)"><h4 style="color:var(--accent-2)">📝 核心 Prompt</h4><p class="dim" style="font-size:12px;line-height:1.5"><em>"分析竞品X近7天价格序列，识别定价策略模式（高频调价/阶梯降价/活动前涨价），推测其营销意图，给出我方应对建议。"</em></p></div>
+</div>
+<div class="pipeline mt-m" style="display:flex;justify-content:center;gap:8px;align-items:center;font-size:12px"><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">① 市场洞察</span><span style="color:var(--text-3)">→</span><span class="pill pill-accent" style="font-size:12px">② 竞品拆解</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">③ 智能选品</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">④ 动态定价</span></div>
+<div class="deck-footer"><span class="dim2">产品研发</span><span>5 / 23</span></div>
+<div class="notes">竞品拆解的重点不是看竞品卖多少钱，而是理解对方的价格策略和营销意图。GPT-4V 可以直接看懂竞品图里的设计元素。每周一份自动生成的SWOT报告可以大幅降低分析师的重复劳动。</div>
+</section>
+
+<section class="slide" data-title="智能选品决策">
+<p class="kicker">03 · 智能选品决策</p>
+<h2 class="h2">四维选品矩阵：从"感觉"到"科学"</h2>
+<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="card center tc"><div class="h1 gradient-text" style="font-size:56px;margin:0">💰</div><h4>利润维度</h4><p class="dim" style="font-size:12px;margin-top:8px">毛利率 × 客单价 / 退货率扣减 / XGBoost 预估</p></div>
+<div class="card center tc"><div class="h1 gradient-text" style="font-size:56px;margin:0">📈</div><h4>需求维度</h4><p class="dim" style="font-size:12px;margin-top:8px">搜索量 × 转化率 / 季节性因子 / 趋势加速度</p></div>
+<div class="card center tc"><div class="h1 gradient-text" style="font-size:56px;margin:0">⚔️</div><h4>竞争强度</h4><p class="dim" style="font-size:12px;margin-top:8px">竞品数量 × 集中度 / 价格带饱和度 / 评论壁垒</p></div>
+<div class="card center tc"><div class="h1 gradient-text" style="font-size:56px;margin:0">🔗</div><h4>供应链风险</h4><p class="dim" style="font-size:12px;margin-top:8px">交期稳定性 / 最小起订量 / 供应商产能</p></div>
+</div>
+<div class="mt-l"><p class="dim" style="text-align:center;font-size:14px">🧠 <b>模型</b>：TOPSIS 综合排序 + DeepFM 推荐 + SHAP 特征解释 · 🤖 <b>每日推送</b>：Top 10 潜力爆品 + AI 选品理由</p></div>
+<div class="pipeline mt-m" style="display:flex;justify-content:center;gap:8px;align-items:center;font-size:12px"><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">① 市场洞察</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">② 竞品拆解</span><span style="color:var(--text-3)">→</span><span class="pill pill-accent" style="font-size:12px">③ 智能选品</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">④ 动态定价</span></div>
+<div class="deck-footer"><span class="dim2">产品研发</span><span>6 / 23</span></div>
+<div class="notes">选品不靠直觉。我们建立四维评分体系：利润、需求、竞争、供应链。每个维度独立打分，TOPSIS综合排序。DeepFM模型每天推荐Top10潜力爆品，每个推荐都附带AI生成的选品理由。关键是要让买手理解"为什么这个品会爆"——SHAP值解释每个特征的贡献。</div>
+</section>
+
+<section class="slide" data-title="动态定价与案例">
+<p class="kicker">04 · 动态定价 & 案例</p>
+<h2 class="h2">选好品只是第一步，让价格随市场呼吸</h2>
+<div class="grid g2 mt-l" style="align-items:start">
+<div><div class="card mb-m"><h4>🧠 强化学习定价智能体</h4><p class="dim" style="font-size:13px;margin:0">DQN 训练：状态 = 库存/竞品价格/时间 · 动作 = 调价幅度 · 奖励 = 利润。每15分钟输出调价建议 → 人工审核 → 自动执行。</p></div>
+<div class="card"><h4>📐 多约束优化</h4><p class="dim" style="font-size:13px;margin:0">Max(利润) - 惩罚(库存积压/缺货)。竞品价格实时接入、促销日历预埋、阶梯调价策略。每日生成调价日报。</p></div></div>
+<div class="card card-outline" style="border-color:var(--good);background:var(--grad-soft)">
+<p class="kicker" style="color:var(--good)">📊 案例：某服饰品牌</p>
+<div class="row" style="gap:24px;align-items:baseline"><div><span class="h1" style="color:var(--good);font-size:64px;line-height:1">+40%</span><p class="dim" style="margin:0;font-size:13px">选品命中率提升</p></div><div><span class="h1" style="color:var(--good);font-size:64px;line-height:1">-25%</span><p class="dim" style="margin:0;font-size:13px">滞销率下降</p></div></div>
+<p class="dim mt-m" style="font-size:12px">XGBoost 销量预测 + SHAP 归因 + DQN 定价 → ROI 提升 3.2×</p>
+</div>
+</div>
+<div class="pipeline mt-m" style="display:flex;justify-content:center;gap:8px;align-items:center;font-size:12px"><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">① 市场洞察</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">② 竞品拆解</span><span style="color:var(--text-3)">→</span><span class="pill" style="font-size:12px;border:1px solid var(--line);color:var(--text-3)">③ 智能选品</span><span style="color:var(--text-3)">→</span><span class="pill pill-accent" style="font-size:12px">④ 动态定价</span></div>
+<div class="deck-footer"><span class="dim2">产品研发</span><span>7 / 23</span></div>
+<div class="notes">定价不是拍脑袋，是强化学习智能体在博弈。DQN Agent 在仿真环境里训练了上百万次，学会了什么时机调价、调多少。关键设计：每15分钟出建议但人工审核——AI做分析，人做决策。案例数据：选品命中率+40%，滞销率-25%。</div>
+</section>
+
+<section class="slide tc center" data-title="内容创建">
+<div style="max-width:780px;margin:0 auto">
+<p class="kicker anim-fade-down" data-anim="fade-down">Part · 02</p>
+<h1 class="h1 anim-rise-in" data-anim="rise-in" style="font-size:96px">内容<span class="gradient-text">创建</span></h1>
+<div class="divider-accent" style="margin:24px auto"></div>
+<p class="lede" style="margin:0 auto">AI 批量生成图片与视频 — 一个人就是一个内容团队</p>
+</div>
+<div class="notes">第二部分：内容创建。商品图、短视频、文案——传统上这些都是烧钱耗人的活。AI让一个人+一套工具就能产出千级SKU素材。</div>
+</section>
+
+<section class="slide" data-title="AI商品图与视频">
+<p class="kicker">01 · 视觉内容生成</p>
+<h2 class="h2">从一张白底图到全渠道素材</h2>
+<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="card"><h4>🖼️ AI 商品图流水线</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>SAM2</b> 自动抠图 → <b>ControlNet</b> Canny+Depth 精准控图 → <b>SDXL</b> 场景融合<br>🔧 ComfyUI 工作流一键跑百张 · Real-ESRGAN 超分辨率<br>📝 "Product photography of 运动鞋, on sunlit wooden deck, 8K"</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">白底→场景</span><span class="pill" style="font-size:11px">多尺寸输出</span><span class="pill" style="font-size:11px">虚拟试穿</span></div></div>
+<div class="card"><h4>🎬 AI 短视频自动生成</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>SVD</b> 多角度图→360°旋转视频 → <b>CosyVoice</b> AI 配音 → <b>CapCut API</b> 字幕叠加<br>🔧 FFmpeg 一键合成：画面+配音+字幕+BGM<br>📝 "5条字幕·每条约10字·节奏由快到慢·结尾CTA"</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">9:16 竖版</span><span class="pill" style="font-size:11px">爆款模板</span><span class="pill" style="font-size:11px">AI 配音</span></div></div>
+</div>
+<div class="deck-footer"><span class="dim2">内容创建</span><span>9 / 23</span></div>
+<div class="notes">商品图流水线的关键是 ComfyUI——一个节点式工作流工具。从抠图到场景融合到多尺寸输出，一次配置，批量跑。视频端用 SVD 做360°旋转展示，CapCut API 自动加字幕，CosyVoice AI配音。一个人一天能产出过去一个团队一周的量。</div>
+</section>
+
+<section class="slide" data-title="AI文案生成">
+<p class="kicker">02 · AI 文案生成</p>
+<h2 class="h2">三管齐下：标题 · 详情 · 多语言</h2>
+<div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+<div class="card"><div class="h2" style="margin:0;font-size:40px">🏷️</div><h4>标题 SEO 优化</h4><p class="dim" style="font-size:13px">生意参谋/ABA 提取高转化关键词 → BERT 相关性筛选 → LLM 在平台规则下生成多版候选 → 附带 SEO 评分</p><p class="dim" style="font-size:12px;margin:8px 0 0;font-style:italic">"核心关键词前置、避免堆砌、突出差异化"</p></div>
+<div class="card"><div class="h2" style="margin:0;font-size:40px">📝</div><h4>详情页文案</h4><p class="dim" style="font-size:13px">商品参数+场景+竞品好评词+差评避坑 → LLM 生成五大模块：痛点→方案→卖点→规格→场景 → 3版候选</p><p class="dim" style="font-size:12px;margin:8px 0 0;font-style:italic">"温暖治愈风格，强调懒人友好"</p></div>
+<div class="card"><div class="h2" style="margin:0;font-size:40px">🌐</div><h4>多语言本地化</h4><p class="dim" style="font-size:13px">DeepL + GPT-4o 本地化改写（非直译）→ 文化适配检查（颜色禁忌/宗教敏感词）→ 日语敬语·英语短句·阿拉伯语 RTL</p><p class="dim" style="font-size:12px;margin:8px 0 0;font-style:italic">"美式电商风格：强调 benefit 而非 feature"</p></div>
+</div>
+<div class="deck-footer"><span class="dim2">内容创建</span><span>10 / 23</span></div>
+<div class="notes">文案的三个层次：标题解决"搜得到"，详情解决"看得懂想买"，多语言解决"卖全球"。核心技巧——不是机器翻译，是本地化改写。日语用敬语，英语短句驱动，阿拉伯语RTL适配。每个SKU生成3个版本，用多臂老虎机算法自动A/B测试。</div>
+</section>
+
+<section class="slide" data-title="内容审核与案例">
+<p class="kicker">03 · 内容审核 & 案例</p>
+<h2 class="h2">既要跑得快，也要跑得稳</h2>
+<div class="grid g2 mt-l" style="align-items:start">
+<div><div class="card mb-m"><h4>🛡️ 合规审核三层防线</h4><p class="dim" style="font-size:13px;margin:0">① 规则引擎：违禁词库正则匹配（最/第一/100%）<br>② GPT-4V 多模态：图片侵权检测 + 敏感内容过滤<br>③ LLM 语义判断：隐性违规识别 + 修改建议输出</p></div>
+<div class="card"><h4>🧪 A/B 测试自动轮换</h4><p class="dim" style="font-size:13px;margin:0">多臂老虎机算法自动分配流量：前期均分探索 → 后期向高转化版本倾斜 → LLM 解读数据 → 下一轮素材迭代建议</p></div></div>
+<div class="card card-outline" style="border-color:var(--accent-2);background:var(--grad-soft)">
+<p class="kicker" style="color:var(--accent-2)">📊 案例：某跨境卖家</p>
+<div style="text-align:center"><span class="h1 gradient-text" style="font-size:88px;line-height:1">-80%</span><p class="dim" style="margin:4px 0">人力成本降低</p><p class="dim" style="font-size:12px;margin:0">AI 生成 3000+ SKU 素材<br>ComfyUI 批量流水线 + CapCut 模板化剪辑<br>1人代替原5人内容团队</p></div>
+</div>
+</div>
+<div class="deck-footer"><span class="dim2">内容创建</span><span>11 / 23</span></div>
+<div class="notes">内容审核不能省。三层防线：先规则过滤明显违规词，再用GPT-4V看图片有没有侵权logo，最后LLM做语义级别的隐性违规判断。A/B测试用多臂老虎机自动调权——不需要等统计学显著，每天实时优化流量分配。案例：3000+SKU，1人干5人的活，成本降80%。</div>
+</section>
+<section class="slide tc center" data-title="供应链">
+<div style="max-width:780px;margin:0 auto">
+<p class="kicker anim-fade-down" data-anim="fade-down">Part · 03</p>
+<h1 class="h1 anim-rise-in" data-anim="rise-in" style="font-size:96px"><span class="gradient-text">供应链</span></h1>
+<div class="divider-accent" style="margin:24px auto"></div>
+<p class="lede" style="margin:0 auto">AI 预测库存与需求优化 — 让库存周转飞起来</p>
+</div>
+<div class="notes">第三部分：供应链。在电商里，库存就是现金流。卖得好的品缺货是灾难，卖不动的品积压也是灾难。AI的核心价值就是让预测更准、补货更聪明。</div>
+</section>
+
+<section class="slide" data-title="需求预测引擎">
+<p class="kicker">01 · 需求预测引擎</p>
+<h2 class="h2">多因素融合，让预测不再是"拍脑袋"</h2>
+<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="card"><h4>🧠 Temporal Fusion Transformer</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>输入特征</b>：历史销量 + 促销标签/折扣深度 + 城市天气 + 节假日/大促日 + 社媒搜索指数<br><b>输出</b>：未来30天日维度预测（含置信区间）<br><b>对比基线</b>：Prophet 做季节性分解，TFT 做多变量复杂融合</p></div>
+<div class="card"><h4>📊 分层预测策略</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>爆款</b>（日均>100件）：TFT / DeepAR 日预测<br><b>腰部门</b>（10-100件）：LightGBM 周预测<br><b>长尾</b>（<10件）：Croston 间歇需求模型 + 相似品聚类借用<br>预测-实际偏差每日回流 → 在线更新</p></div>
+</div>
+<div class="deck-footer"><span class="dim2">供应链</span><span>13 / 23</span></div>
+<div class="notes">TFT是目前时序预测的SOTA模型——它能同时处理销量、促销、天气、节假日等多种因素，输出未来30天的预测和置信区间。分层预测的关键：爆款要日粒度精细管理，长尾商品用间歇需求模型，不要一刀切。</div>
+</section>
+
+<section class="slide" data-title="智能库存管理">
+<p class="kicker">02 · 智能库存管理</p>
+<h2 class="h2">安全库存 + 多仓调拨 + 滞销预警</h2>
+<div class="mt-l anim-stagger-list" data-anim-target style="display:flex;flex-direction:column;gap:14px">
+<div class="card"><div class="row" style="gap:16px;align-items:center"><span style="font-size:32px;flex-shrink:0">🎯</span><div style="flex:1"><h4 style="margin:0">安全库存动态计算</h4><p class="dim" style="margin:0;font-size:13px">Monte Carlo 仿真 10000 次：需求概率分布 × 交期概率分布 → 目标服务水平 98% 对应的安全库存</p></div><span class="pill">XGBoost 交期预测</span></div></div>
+<div class="card"><div class="row" style="gap:16px;align-items:center"><span style="font-size:32px;flex-shrink:0">🔄</span><div style="flex:1"><h4 style="margin:0">多仓智能调拨</h4><p class="dim" style="margin:0;font-size:13px">整数规划求解最优调拨方案：最小化运输成本 + 库存持有成本 + 缺货损失</p></div><span class="pill">OR-Tools</span></div></div>
+<div class="card"><div class="row" style="gap:16px;align-items:center"><span style="font-size:32px;flex-shrink:0">⚠️</span><div style="flex:1"><h4 style="margin:0">滞销三级预警 + 自动清仓方案</h4><p class="dim" style="margin:0;font-size:13px">黄色→橙色→红色逐级预警 · LLM 生成清仓方案：折扣阶梯 / 捆绑搭配 / 渠道建议</p></div><span class="pill pill-accent">GPT-4o</span></div></div>
+</div>
+<div class="deck-footer"><span class="dim2">供应链</span><span>14 / 23</span></div>
+<div class="notes">库存管理的三个核心问题：1) 安全库存多少——用Monte Carlo仿真，不是套公式；2) 多仓之间怎么调拨——运筹优化，目标是最小化总成本；3) 滞销了怎么办——三级预警机制，LLM自动出清仓方案。重点：滞销预警要早，库龄超过90天基本就亏了。</div>
+</section>
+
+<section class="slide" data-title="智能补货与物流">
+<p class="kicker">03 · 智能补货 & 仓储物流</p>
+<h2 class="h2">从补货触发到包裹配送的 AI 全链路</h2>
+<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="card"><h4>📦 智能补货系统</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>动态再订货点</b> = 日均需求 × 平均交期 + 安全库存<br>每日凌晨自动计算 → 跌破订货点即生成补货草稿 → 采购审批 → 一键下单<br><b>多SKU合并补货</b>：EOQ扩展 + 阶梯运费优化<br><b>贝叶斯更新</b>：每日更新需求分布先验</p></div>
+<div class="card"><h4>🚚 仓储物流优化</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>蚁群算法</b>：多拣货员协同路径优化 → 总行走距离最小<br><b>XGBoost</b>：快递线路准时率/破损率预测 → 智能选快递<br><b>退货预测</b>：订单生成时即预估退货概率 → 高退货订单提前干预<br><b>逆向物流</b>：退货商品智能分级 → 二次销售/翻新/报废</p></div>
+</div>
+<div class="deck-footer"><span class="dim2">供应链</span><span>15 / 23</span></div>
+<div class="notes">补货的难点不是算量，是算时机——哪些SKU现在必须补，哪些可以等一等和其他品一起下单省运费。多SKU合并补货的优化本质上是在"早补货多占库存成本"和"晚补货合并省运费"之间找最优平衡。物流端，拣货路径用蚁群算法，包裹选快递用ML预测线路质量。</div>
+</section>
+
+<section class="slide center tc" data-title="供应链案例">
+<div style="max-width:800px;margin:0 auto">
+<p class="kicker" style="color:var(--good)">📊 案例：某快消品电商</p>
+<div class="row mt-l" style="justify-content:center;gap:48px">
+<div><div style="font-size:110px;font-weight:900;line-height:1;color:var(--text-2)">45<span style="font-size:36px">天</span></div><p class="dim">Before · 库存周转天数</p></div>
+<div style="font-size:72px;line-height:1;color:var(--text-3);display:flex;align-items:center">→</div>
+<div><div class="h1 gradient-text" style="font-size:110px;line-height:1">28<span style="font-size:36px">天</span></div><p class="dim">After · 库存周转天数</p></div>
+</div>
+<p class="lede mt-l" style="margin:16px auto 0">TFT 需求预测 + 动态安全库存 + 多仓智能调拨 → <b style="color:var(--good)">周转效率提升 38%</b></p>
+<div class="row mt-m" style="justify-content:center;gap:24px"><span class="pill" style="font-size:12px">缺货率降至 2.1%</span><span class="pill pill-accent" style="font-size:12px">滞销占比 -18%</span><span class="pill" style="font-size:12px">物流成本 -12%</span></div>
+</div>
+<div class="deck-footer"><span class="dim2">供应链</span><span>16 / 23</span></div>
+<div class="notes">库存周转从45天到28天，意味着同一笔资金一年能多转近3圈。这背后是TFT预测模型让补货更精准、动态安全库存不囤积、多仓调拨把滞销仓的货调到缺货仓。</div>
+</section>
+
+<section class="slide tc center" data-title="AI智能客服">
+<div style="max-width:780px;margin:0 auto">
+<p class="kicker anim-fade-down" data-anim="fade-down">Part · 04</p>
+<h1 class="h1 anim-rise-in" data-anim="rise-in" style="font-size:96px">AI <span class="gradient-text">智能客服</span></h1>
+<div class="divider-accent" style="margin:24px auto"></div>
+<p class="lede" style="margin:0 auto">全天候自动化服务 — 让每个客户都被"懂"</p>
+</div>
+<div class="notes">第四部分：AI智能客服。不是传统的关键词匹配机器人，是基于大语言模型的真正对话引擎。理解上下文、识别意图、调用工具、多模态交互，7×24小时在线。</div>
+</section>
+
+<section class="slide" data-title="多轮对话引擎">
+<p class="kicker">01 · 技术架构</p>
+<h2 class="h2">从"关键词匹配"到"🧠大模型对话引擎"</h2>
+<div class="mt-l anim-stagger-list" data-anim-target style="display:flex;flex-direction:column;gap:12px">
+<div class="card"><div class="row" style="align-items:flex-start;gap:14px"><span class="pill pill-accent" style="flex-shrink:0">对话编排</span><div style="flex:1"><h4 style="margin:0">LangGraph 状态图：问候 → 意图识别 → 信息收集 → 问题解决 → 满意度确认</h4><p class="dim" style="margin:2px 0 0;font-size:12px">GPT-4o / Qwen2.5 对话生成 · BGE-M3 中文向量检索 · RAG 知识库增强 · Function Calling 查订单/退换货</p></div></div></div>
+<div class="card"><div class="row" style="align-items:flex-start;gap:14px"><span class="pill pill-accent" style="flex-shrink:0">意图识别</span><div style="flex:1"><h4 style="margin:0">26 类电商意图分类 + 槽位填充</h4><p class="dim" style="margin:2px 0 0;font-size:12px">查物流 / 退换货 / 改地址 / 催发货 / 商品咨询 / 议价 / 投诉 · 自动抽取订单号/商品名/日期/金额</p></div></div></div>
+<div class="card"><div class="row" style="align-items:flex-start;gap:14px"><span class="pill pill-accent" style="flex-shrink:0">多模态</span><div style="flex:1"><h4 style="margin:0">文本 + 语音 + 图片统一交互</h4><p class="dim" style="margin:2px 0 0;font-size:12px">Whisper ASR → 引擎处理 → CosyVoice TTS · GPT-4V 识别破损商品图 → 自动判断赔付金额</p></div></div></div>
+</div>
+<div class="deck-footer"><span class="dim2">AI智能客服</span><span>18 / 23</span></div>
+<div class="notes">传统客服机器人是关键词if-else，大模型客服是真正理解用户意图。我们用LangGraph编排状态图：用户说什么→意图是什么→需要什么信息→怎么解决→用户满意吗。Function Calling让AI能直接查订单、发起退款。多模态支持意味着用户拍张破损商品图，AI能直接判断严重程度和赔付建议。</div>
+</section>
+
+<section class="slide" data-title="售前售后场景">
+<p class="kicker">02 · 服务场景</p>
+<h2 class="h2">售前懂需求，售后解问题</h2>
+<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="card"><h4>🛍️ 售前：智能推荐 & 商品对比</h4><div style="font-size:13px;line-height:1.7"><p class="dim" style="margin:4px 0"><b>双塔召回</b>：用户画像 + 浏览历史 → Top50 候选</p><p class="dim" style="margin:4px 0"><b>DeepFM 精排</b>：Top5 最优推荐</p><p class="dim" style="margin:4px 0"><b>LLM 推荐理由</b>：个性化生成，让用户感到"你懂我"</p><p class="dim" style="margin:4px 0"><b>商品对比</b>：全维度参数 + 好评率 + 差评高频词 → 一句话结论</p></div></div>
+<div class="card"><h4>🔧 售后：退换货 & 投诉处理</h4><div style="font-size:13px;line-height:1.7"><p class="dim" style="margin:4px 0"><b>自动退货</b>：查订单状态 → 判断退货资格 → 发送退货码</p><p class="dim" style="margin:4px 0"><b>物流异常</b>：48h无更新自动标记 → 丢件确认 → 重发/退款</p><p class="dim" style="margin:4px 0"><b>投诉分级</b>：L1 AI处理 / L2 AI+券 / L3 转人工 / L4 秒级升级主管</p><p class="dim" style="margin:4px 0"><b>转人工</b>：自动生成上下文摘要 → 坐席秒懂前因后果</p></div></div>
+</div>
+<div class="deck-footer"><span class="dim2">AI智能客服</span><span>19 / 23</span></div>
+<div class="notes">售前的核心能力是推荐——不是随机推，是基于用户画像+实时对话的精准匹配。售后的关键是分级处理：简单问题AI自己解决，复杂问题带着上下文摘要无缝转给人工。投诉分级尤其重要——L4级别的舆情风险要秒级升级到主管，不能拖。</div>
+</section>
+
+<section class="slide" data-title="多语言与知识库">
+<p class="kicker">03 · 全球化 & 持续进化</p>
+<h2 class="h2">服务全球，越用越聪明</h2>
+<div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+<div class="card"><h4>🌐 50+ 语种实时翻译</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>NLLB-200</b>：Meta 开源 200 语种翻译 · 离线部署<br><b>GPT-4o 本地化改写</b>：非直译，日语敬语/英语短句/阿拉伯语RTL<br><b>文化适配滤镜</b>：节日禁忌/颜色符号/沟通风格自动检测</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">日语：です・ます体</span><span class="pill" style="font-size:11px">美式：benefit 驱动</span><span class="pill" style="font-size:11px">中东：关系优先</span></div></div>
+<div class="card"><h4>🧠 知识库 & 持续学习闭环</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>知识图谱</b>：Neo4j + GraphRAG · 商品→属性→场景自动构建<br><b>数据回流</b>：低满意对话 → 人工标注 → LoRA 微调 → A/B测试<br><b>情感分析</b>：实时监测用户情绪 → 主动优化话术</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">Neo4j 图数据库</span><span class="pill" style="font-size:11px">LoRA 高效微调</span><span class="pill" style="font-size:11px">RLHF 奖励模型</span></div></div>
+</div>
+<div class="deck-footer"><span class="dim2">AI智能客服</span><span>20 / 23</span></div>
+<div class="notes">多语言不是翻译，是本地化。《亲，这款超好用的》翻成日语不能直接说"超好用"，要用敬语表达品质感。知识库持续学习：每天收集低满意度对话→人工标注理想回复→每月LoRA微调→A/B测试→全量上线。这是客服质量的飞轮。</div>
+</section>
+
+<section class="slide center tc" data-title="AI客服案例">
+<div style="max-width:800px;margin:0 auto">
+<p class="kicker" style="color:var(--accent-2)">📊 案例：某电商平台</p>
+<div class="row mt-l" style="justify-content:center;gap:48px;align-items:baseline">
+<div><div class="h1 gradient-text" style="font-size:110px;line-height:1">85<span style="font-size:36px">%</span></div><p class="dim">AI 客服解决率</p></div>
+<div><div class="h1" style="font-size:110px;line-height:1;color:var(--good)">-60<span style="font-size:36px">%</span></div><p class="dim">人工咨询量下降</p></div>
+</div>
+<p class="lede mt-l" style="margin:16px auto 0">GPT-4o 多轮对话 + RAG 知识库 + 26 类意图识别 → <b style="color:var(--accent-2)">7×24 小时无间断服务</b></p>
+<div class="row mt-m" style="justify-content:center;gap:24px"><span class="pill" style="font-size:12px">平均响应 < 3 秒</span><span class="pill pill-accent" style="font-size:12px">50+ 语种覆盖</span><span class="pill" style="font-size:12px">用户满意度 4.2/5</span></div>
+</div>
+<div class="deck-footer"><span class="dim2">AI智能客服</span><span>21 / 23</span></div>
+<div class="notes">85%解决率意味着只有15%的问题需要人工介入。关键数据：响应时间不到3秒，传统人工客服平均响应45秒。50+语种覆盖让一个客服团队服务全球。用户满意度4.2/5，说明AI客服不是"能用"，而是"好用"。</div>
+</section>
+
+<section class="slide center tc" data-title="总结">
+<div style="max-width:900px">
+<p class="kicker">Summary · 总结</p>
+<h1 class="h1 anim-rise-in" data-anim="rise-in" style="font-size:64px">AI 赋能电商<br><span class="gradient-text">四大模块闭环</span></h1>
+<div class="mt-l anim-stagger-list" data-anim-target style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+<span class="pill pill-accent" style="font-size:15px;padding:10px 18px">🔍 产品研发 → 选对品</span>
+<span style="font-size:18px;color:var(--text-3);display:flex;align-items:center">→</span>
+<span class="pill pill-accent" style="font-size:15px;padding:10px 18px">🎨 内容创建 → 卖相好</span>
+<span style="font-size:18px;color:var(--text-3);display:flex;align-items:center">→</span>
+<span class="pill pill-accent" style="font-size:15px;padding:10px 18px">📦 供应链 → 不断货</span>
+<span style="font-size:18px;color:var(--text-3);display:flex;align-items:center">→</span>
+<span class="pill pill-accent" style="font-size:15px;padding:10px 18px">💬 智能客服 → 服务好</span>
+</div>
+<div class="divider-accent" style="margin:28px auto"></div>
+<p class="lede" style="margin:16px auto">AI 不是替代人，而是让团队聚焦高价值决策<br><span class="dim" style="font-size:15px">机器做执行与预测，人做判断与创新</span></p>
+<div class="card card-outline mt-l" style="max-width:560px;margin:20px auto 0;border-color:var(--accent-2)"><h4 style="color:var(--accent-2);margin:0 0 6px">🔮 未来趋势</h4><p class="dim" style="font-size:13px;margin:0">AI Agent 自主运营店铺 — 选品、定价、投放、客服、补货全链路多 Agent 协作，人类转为"监督者 + 策略制定者"</p></div>
+</div>
+<div class="deck-footer"><span class="dim2">总结</span><span>22 / 23</span></div>
+<div class="notes">总结一下：四大模块形成完整闭环——选品决定卖什么，内容决定怎么卖，供应链保证卖得好，客服保证卖得久。AI不是替代人，是把人从重复执行中解放出来，专注在策略和创新上。未来的方向是AI Agent自主运营——多个AI Agent协作管理整个店铺，人类只需要做监督和策略。</div>
+</section>
+
+<section class="slide center tc" data-title="Thanks">
+<div>
+<h1 class="h1 anim-fade-up" data-anim="fade-up" style="font-size:140px;line-height:1"><span class="gradient-text">Thanks</span></h1>
+<p class="lede" style="margin:18px auto 0">电商 AI 赋能 · 从数据驱动到智能决策</p>
+<div class="row mt-l" style="justify-content:center;gap:32px"><div class="dim">产品研发 · 内容创建 · 供应链 · 智能客服</div></div>
+<p class="dim mt-xl" style="font-size:14px">Q&A</p>
+</div>
+<div class="notes">谢谢大家。现在进入Q&A环节。有任何问题欢迎交流。</div>
+</section>
+
+</div>
+<script src="../../assets/runtime.js"></script>
+</body></html>
