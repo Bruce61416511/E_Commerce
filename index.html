@@ -1151,6 +1151,8 @@ JSON，每个字段含具体可执行的模板内容：
 
 
 
+
+
 <section class="slide" data-title="智能库存管理">
 
 <p class="kicker">02 · 智能库存管理</p>
@@ -1159,73 +1161,61 @@ JSON，每个字段含具体可执行的模板内容：
 
 <div class="mt-l anim-stagger-list" data-anim-target style="display:flex;flex-direction:column;gap:14px">
 
-<div class="card"><div class="row" style="gap:16px;align-items:center"><span style="font-size:32px;flex-shrink:0">📊</span><div style="flex:1"><h4 style="margin:0">安全库存动态计算</h4><p class="dim" style="margin:0;font-size:13px">Monte Carlo 仿真 10000 次：需求概率分布 × 交期概率分布 → 目标服务水平 98% 对应的安全库存</p></div><span class="pill">XGBoost 交期预测</span></div></div>
+<div class="grid g2" style="gap:10px;font-size:12px">
 
-<div class="card"><div class="row" style="gap:16px;align-items:center"><span style="font-size:32px;flex-shrink:0">📊</span><div style="flex:1"><h4 style="margin:0">多仓智能调拨</h4><p class="dim" style="margin:0;font-size:13px">整数规划求解最优调拨方案：最小化运输成本 + 库存持有成本 + 缺货损失</p></div><span class="pill">OR-Tools</span></div></div>
+<div class="card" style="padding:16px 20px">
+<p style="margin:0 0 6px;font-weight:700;color:var(--accent);font-size:14px">📦 安全库存动态计算</p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">① 输入</p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">需求预测（上一页 TFT 输出）+ 供应商历史交货天数 + 目标服务水平 98%</p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">② 模型</p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">Monte Carlo 仿真：同时随机抽取历史需求 + 历史交货天数，仿真一万次 → 计算不同库存水平下的断货概率<br><span style="font-size:10px;color:var(--text-3)">⚡ @RISK / Oracle Crystal Ball（零代码）</span></p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">③ 输出</p>
+<p style="margin:0;color:var(--text-2);font-size:11px">98% 不断货所需的最小安全库存量</p>
+</div>
 
-<div class="card"><div class="row" style="gap:16px;align-items:center"><span style="font-size:32px;flex-shrink:0">📊</span><div style="flex:1"><h4 style="margin:0">滞销三级预警 + 自动清仓方案</h4><p class="dim" style="margin:0;font-size:13px">黄色→橙色→红色逐级预警 · LLM 生成清仓方案：折扣阶梯 / 捆绑搭配 / 渠道建议</p></div><span class="pill pill-accent">GPT-4o</span></div></div>
+<div class="card" style="padding:16px 20px">
+<p style="margin:0 0 6px;font-weight:700;color:var(--accent);font-size:14px">🚚 多仓智能调拨</p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">① 输入</p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">各仓当前库存 + 各区域需求预测（← 上一页 TFT 输出）+ 仓间运输成本</p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">② 模型</p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">整数规划（Google OR-Tools）求解：运输成本 + 持有成本 + 缺货损失最小化<br><span style="font-size:10px;color:var(--text-3)">⚡ Gurobi / CPLEX（企业版）</span></p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">③ 输出</p>
+<p style="margin:0;color:var(--text-2);font-size:11px">最优调拨方案：从哪仓调到哪仓、调多少</p>
+</div>
 
 </div>
 
-<div class="deck-footer"><span class="dim2">供应链</span><span>18 / 27</span></div>
+<div class="grid g2" style="gap:10px;font-size:12px">
 
-<div class="notes">库存管理的三个核心问题：1) 安全库存多少——用Monte Carlo仿真，不是套公式；2) 多仓之间怎么调拨——运筹优化，目标是最小化总成本；3) 滞销了怎么办——三级预警机制，LLM自动出清仓方案。重点：滞销预警要早，库龄超过90天基本就亏了。</div>
-
-</section>
-
-
-
-<section class="slide" data-title="智能补货与物流">
-
-<p class="kicker">03 · 智能补货 & 仓储物流</p>
-
-<h2 class="h2">从补货触发到包裹配送的 AI 全链路</h2>
-
-<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
-
-<div class="card"><h4>💡 智能补货系统</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>动态再订货点</b> = 日均需求 × 平均交期 + 安全库存<br>每日凌晨自动计算 → 跌破订货点即生成补货草稿 → 采购审批 → 一键下单<br><b>多SKU合并补货</b>：EOQ扩展 + 阶梯运费优化<br><b>贝叶斯更新</b>：每日更新需求分布先验</p></div>
-
-<div class="card"><h4>💡 仓储物流优化</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>蚁群算法</b>：多拣货员协同路径优化 → 总行走距离最小<br><b>XGBoost</b>：快递线路准时率/破损率预测 → 智能选快递<br><b>退货预测</b>：订单生成时即预估退货概率 → 高退货订单提前干预<br><b>逆向物流</b>：退货商品智能分级 → 二次销售/翻新/报废</p></div>
-
+<div class="card" style="padding:16px 20px">
+<p style="margin:0 0 6px;font-weight:700;color:var(--accent);font-size:14px">🚨 滞销预警</p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">① 输入</p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">商品库龄（入仓日期）+ 近30天销量趋势（店铺后台）+ 品类利润率（渠道毛利率）</p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">② 模型</p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">规则引擎综合判断：库龄(30/60/90天) + 销量趋势(是否还在走量) + 利润率(薄利/厚利) → 黄/橙/红三级预警<br><span style="font-size:10px;color:var(--text-3)">⚡ 旺店通 / 聚水潭（ERP 内置）</span></p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">③ 输出</p>
+<p style="margin:0;color:var(--text-2);font-size:11px">预警等级</p>
 </div>
 
-<div class="deck-footer"><span class="dim2">供应链</span><span>19 / 27</span></div>
-
-<div class="notes">补货的难点不是算量，是算时机——哪些SKU现在必须补，哪些可以等一等和其他品一起下单省运费。多SKU合并补货的优化本质上是在"早补货多占库存成本"和"晚补货合并省运费"之间找最优平衡。物流端，拣货路径用蚁群算法，包裹选快递用ML预测线路质量。</div>
-
-</section>
-
-
-
-<section class="slide center tc" data-title="供应链案例">
-
-<div style="max-width:800px;margin:0 auto">
-
-<p class="kicker" style="color:var(--good)">💡 案例：某快消品电商</p>
-
-<div class="row mt-l" style="justify-content:center;gap:48px">
-
-<div><div style="font-size:110px;font-weight:900;line-height:1;color:var(--text-2)">45<span style="font-size:36px">天</span></div><p class="dim">Before · 库存周转天数</p></div>
-
-<div style="font-size:72px;line-height:1;color:var(--text-3);display:flex;align-items:center">→</div>
-
-<div><div class="h1 gradient-text" style="font-size:110px;line-height:1">28<span style="font-size:36px">天</span></div><p class="dim">After · 库存周转天数</p></div>
-
+<div class="card" style="padding:16px 20px">
+<p style="margin:0 0 6px;font-weight:700;color:var(--accent);font-size:14px">📉 自动清仓</p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">① 输入</p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">预警等级 + 商品信息（品类/售价/利润率/当前库存）</p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">② 模型</p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">规则引擎匹配清仓策略库 → GPT-4o 辅助生成执行方案<br><span style="font-size:10px;color:var(--text-3)">策略库由运营维护 &nbsp;|&nbsp; ⚡ GPT-4o（OpenAI API / Azure OpenAI）只做方案生成和文案撰写</span></p>
+<p style="margin:0 0 2px;color:var(--text-3);font-size:11px">③ 输出</p>
+<p style="margin:0;color:var(--text-2);font-size:11px">折扣阶梯 / 捆绑搭配建议 / 推荐清仓渠道</p>
 </div>
 
-<p class="lede mt-l" style="margin:16px auto 0">TFT 需求预测 + 动态安全库存 + 多仓智能调拨 → <b style="color:var(--good)">周转效率提升 38%</b></p>
-
-<div class="row mt-m" style="justify-content:center;gap:24px"><span class="pill" style="font-size:12px">缺货率降至 2.1%</span><span class="pill pill-accent" style="font-size:12px">滞销占比 -18%</span><span class="pill" style="font-size:12px">物流成本 -12%</span></div>
+</div>
 
 </div>
 
 <div class="deck-footer"><span class="dim2">供应链</span><span>20 / 27</span></div>
 
-<div class="notes">库存周转从45天到28天，意味着同一笔资金一年能多转近3圈。这背后是TFT预测模型让补货更精准、动态安全库存不囤积、多仓调拨把滞销仓的货调到缺货仓。</div>
+<div class="notes">库存管理的四个核心：Monte Carlo仿真定安全库存；整数规划解决多仓调拨；规则引擎做滞销预警；GPT-4o辅助出清仓方案。</div>
 
 </section>
-
-
 
 <section class="slide tc center" data-title="AI智能客服">
 
