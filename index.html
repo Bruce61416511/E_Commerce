@@ -1013,27 +1013,73 @@ JSON，每个字段含具体可执行的模板内容：
 <div class="card" style="padding:16px 20px">
 <div class="row" style="align-items:flex-start;gap:12px">
 <span class="pill pill-accent" style="flex-shrink:0">数据回收</span>
-<div style="flex:1"><p style="margin:0;font-size:13px">全链路埋点：曝光 → 点击 → 加购 → 成交 → 退款，每个素材独立追踪 ID，每笔订单都能追溯到是哪条素材带来的</p></div>
+<div style="flex:1"><p style="margin:0;font-size:13px">全链路埋点：曝光 → 点击 → 加购，每个素材独立追踪 ID，前置数据（完播率/互动率/点击量）全自动回收，成交归因需手动补全</p></div>
 </div>
 </div>
 
 <div class="card" style="padding:16px 20px">
 <div class="row" style="align-items:flex-start;gap:12px">
 <span class="pill pill-accent" style="flex-shrink:0">智能分析</span>
-<div style="flex:1"><p style="margin:0;font-size:13px">GPT-4o 解读数据，自动输出日报：哪些模板表现好、哪些 KOC 值得续、哪些品类需要调策略</p></div>
+<div style="flex:1"><p style="margin:0;font-size:13px">GPT-4o 解读前置数据（完播率/互动率/点击量），自动输出日报：哪些模板大概率表现好、哪些需要优化、哪些建议淘汰</p></div>
 </div>
 </div>
 
 <div class="card" style="padding:16px 20px">
 <div class="row" style="align-items:flex-start;gap:12px">
 <span class="pill pill-accent" style="flex-shrink:0">策略迭代</span>
-<div style="flex:1"><p style="margin:0;font-size:13px">高转化模板自动加权推荐，低效模板降权或淘汰；反馈至 ③ 批量生产环节，次日素材自动优化</p></div>
+<div style="flex:1"><p style="margin:0;font-size:13px">高互动模板自动加权推荐，低效模板标注建议淘汰；反馈至 ③ 批量生产环节，次日素材自动优化</p></div>
 </div>
 </div>
 
 </div>
 
 <div class="deck-footer"><span class="dim2">内容供应链</span><span>16 / 27</span></div>
+
+</section>
+
+
+
+<section class="slide" data-title="自动化现状">
+
+<p class="kicker">内容供应链 · 自动化现状</p>
+
+<h2 class="h2">哪些能全自动？哪些还不行？</h2>
+
+<div class="grid g2 mt-m" style="gap:10px">
+
+<div class="card card-soft" style="padding:14px 18px;background:var(--good-bg);border:1px solid var(--good)">
+<h4 style="margin:0 0 6px;color:var(--good)">⚡ 已可全自动</h4>
+
+<div style="font-size:12px;line-height:1.6;color:var(--text-2)">
+
+<p style="margin:0 0 6px"><b>① 叙事框架</b><br>→ GPT-4o 分析爆款 → 提炼模板 → embedding 入库<br><span style="color:var(--text-3)">🛠️ GPT-4o + OpenAI Embedding + Qdrant/Milvus</span></p>
+
+<p style="margin:0 0 6px"><b>② 素材库</b><br>→ CLIP 自动打标 + 向量检索 + 版本管理<br><span style="color:var(--text-3)">🛠️ CLIP + Qdrant + MinIO</span></p>
+
+<p style="margin:0"><b>③ 批量生产</b><br>→ 选模板 → 填商品 → 渲染 全流程自动化<br><span style="color:var(--text-3)">🛠️ ComfyUI + SAM2 + SDXL + CosyVoice</span></p>
+
+</div>
+</div>
+
+<div class="card card-soft" style="padding:14px 18px;background:var(--warn-bg, #fff8e1);border:1px solid var(--warn, #f0ad4e)">
+<h4 style="margin:0 0 6px;color:var(--warn, #e67e22)">✋ 仍需人工</h4>
+
+<div style="font-size:12px;line-height:1.6;color:var(--text-2)">
+
+<p style="margin:0 0 6px"><b>④ KOC 分发</b><br>→ 达人匹配可辅助，但沟通/合同/寄样只能人工<br><span style="color:var(--text-3)">❌ 原因：平台不开放达人数据 API，合规风险需人判断</span></p>
+
+<p style="margin:0"><b>⑤ 数据闭环</b><br>→ 前置数据自动，成交归因无法全自动<br><span style="color:var(--text-3)">❌ 原因：同品多素材归因不透明，跨平台链路断裂</span></p>
+
+</div>
+</div>
+
+</div>
+
+<div style="margin-top:12px;font-size:12px;color:var(--text-3);text-align:center">
+①②③ 可用 Vibe coding 快速搭建 MVP &nbsp;|&nbsp; ④⑤ 最多做到「半自动 + 人辅助」
+</div>
+
+<div class="deck-footer"><span class="dim2">内容供应链</span><span>17 / 27</span></div>
 
 </section>
 
@@ -1065,15 +1111,41 @@ JSON，每个字段含具体可执行的模板内容：
 
 <div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
 
-<div class="card"><h4>💡 Temporal Fusion Transformer</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>输入特征</b>：历史销量 + 促销标签/折扣深度 + 城市天气 + 节假日/大促日 + 社媒搜索指数<br><b>输出</b>：未来30天日维度预测（含置信区间）<br><b>对比基线</b>：Prophet 做季节性分解，TFT 做多变量复杂融合</p></div>
+<div class="card" style="padding:16px 20px">
 
-<div class="card"><h4>💡 分层预测策略</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>爆款</b>（日均>100件）：TFT / DeepAR 日预测<br><b>腰部门</b>（10-100件）：LightGBM 周预测<br><b>长尾</b>（<10件）：Croston 间歇需求模型 + 相似品聚类借用<br>预测-实际偏差每日回流 → 在线更新</p></div>
+<div class="grid g2" style="gap:8px;font-size:12px">
+<div>
+<p style="margin:0 0 4px;font-weight:700;color:var(--accent)">💡 TFT · 多因素预测模型</p>
+<p style="margin:0 0 6px;color:var(--text-3);font-size:11px">① 根据：Google/Oxford 2021 论文，M5 时序预测竞赛前列，自带可解释性</p>
+<p style="margin:0 0 2px"><b>② 输入</b></p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">历史销量（店铺后台）+ 促销标签/折扣深度（商家后台活动配置）+ 城市天气（和风天气/OpenWeatherMap API）+ 节假日/大促日（人工维护大促日历表）+ 社媒搜索指数（Google Trends / 蝉妈妈 / 百度指数）</p>
+<p style="margin:0 0 2px"><b>③ 工具</b></p>
+<p style="margin:0 0 2px;color:var(--text-2);font-size:11px;font-weight:600">TFT 算法（Temporal Fusion Transformer）</p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">⚡ 零代码：AWS Forecast | Google Vertex AI | 阿里云 PAI</p>
+<p style="margin:0 0 2px"><b>④ 输出</b></p>
+<p style="margin:0;color:var(--text-2);font-size:11px">未来30天日级预测表</p>
+</div>
+
+<div>
+<p style="margin:0 0 4px;font-weight:700;color:var(--accent)">📊 分层预测 · 量级分策略</p>
+<p style="margin:0 0 6px;color:var(--text-3);font-size:11px">① 根据：零售行业通行做法，不同量级商品统计特性不同，需分层建模</p>
+<p style="margin:0 0 2px"><b>② 输入</b></p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">商品日均销量分层（店铺后台订单数据）：爆款（>100件/天）、腰部（10-100）、长尾（<10）</p>
+<p style="margin:0 0 2px"><b>③ 工具</b></p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">爆款：DeepAR | 腰部：LightGBM | 长尾：Croston 间歇需求模型</p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">⚡ 零代码：DeepAR → AWS Forecast &nbsp;|&nbsp; LightGBM → 阿里云 PAI / Azure AutoML &nbsp;|&nbsp; Croston → 需自写</p>
+<p style="margin:0 0 6px;color:var(--text-3);font-size:10px">均为专用时序预测算法，非语言大模型</p>
+<p style="margin:0 0 2px"><b>④ 输出</b></p>
+<p style="margin:0;color:var(--text-2);font-size:11px">爆款日预测 / 腰部周预测 / 长尾间歇预测</p>
+</div>
+</div>
 
 </div>
 
+
 <div class="deck-footer"><span class="dim2">供应链</span><span>17 / 27</span></div>
 
-<div class="notes">TFT是目前时序预测的SOTA模型——它能同时处理销量、促销、天气、节假日等多种因素，输出未来30天的预测和置信区间。分层预测的关键：爆款要日粒度精细管理，长尾商品用间歇需求模型，不要一刀切。</div>
+<div class="notes">左边TFT是单品精细预测，右边分层是全店策略。爆款用TFT日级精算，腰部用LightGBM周级够用，长尾用Croston判断会不会卖。好钢用在刀刃上——全店1000个SKU不用都上TFT。——它能同时处理销量、促销、天气、节假日等多种因素，输出未来30天的预测和置信区间。分层预测的关键：爆款要日粒度精细管理，长尾商品用间歇需求模型，不要一刀切。</div>
 
 </section>
 
