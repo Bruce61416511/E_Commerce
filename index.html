@@ -166,13 +166,13 @@
 
 <span style="color:var(--accent);font-size:14px">→</span>
 
-<span class="pill pill-accent" style="font-size:12px">🧠 Neo4j + GPT-4o</span>
+<span class="pill pill-accent" style="font-size:12px">🧠 GPT-4o</span>
 
 <span style="font-size:14px;color:var(--text-2)">构建关联图谱 · 发现跨界组合 · 验证可行性（市场规模·竞争强度·供给门槛）</span>
 
 </div>
 
-<div style="font-size:12px;color:var(--text-3);margin-top:4px;line-height:1.5">💡 跨品类购买=用户在同一店铺购买不同品类 &nbsp; Neo4j=图数据库用于发现品类关联 &nbsp; 市场规模=总销售额预估 &nbsp; 竞争强度=现有卖家数量 &nbsp; 供给门槛=1688工厂能否生产</div>
+<div style="font-size:12px;color:var(--text-3);margin-top:4px;line-height:1.5">💡 跨品类购买=用户同一订单购买不同品类 &nbsp; 关联数据=搜索“A+B”组合词频次+社媒品类搭配讨论 &nbsp; 可行性=市场规模+竞争强度+1688供给</div>
 
 </div></div></div>
 
@@ -203,6 +203,8 @@
 ## 角色
 
 你是电商产品策略顾问。基于多源数据，完成从市场信号捕捉、用户需求挖掘到跨界概念生成的全流程分析，最终输出可落地的产品开发建议。
+
+三步串联：第一步的品类结果 → 作为第二步、第三步的分析范围，确保三步围绕同一批品类。
 
 
 
@@ -250,6 +252,8 @@
 
 - 3 个最值得切入的品类，每个附 100 字入场理由
 
+→ 以上 TOP 3 品类作为第二步、第三步的目标品类，后续分析围绕这 3 个品类展开
+
 
 
 ---
@@ -262,7 +266,7 @@
 
 ### 数据采集
 
-使用 🔧 八爪鱼 / 魔镜市场情报 采集：
+以第一步输出的 TOP 3 品类为目标，使用 🔧 八爪鱼 / 魔镜市场情报 采集：
 
 - 用户评论：目标品类 TOP 20 商品的 1-2 星差评（覆盖 Amazon / 淘宝 / 京东 / Shopee）
 
@@ -302,7 +306,7 @@
 
 ### 数据采集
 
-使用 🔧 八爪鱼 / Apify 采集：
+以第一步输出的 TOP 3 品类为锚点，使用 🔧 八爪鱼 / Apify 采集：
 
 - 跨品类购买数据：用户在同一店铺或同一订单中同时购买的不同品类商品
 
@@ -312,16 +316,10 @@
 
 ### AI 分析
 
-用 🧠 Neo4j 图数据库 + GPT-4o 完成：
+用 🧠 GPT-4o 完成：
 
-1. 构建品类关联图谱：将跨品类购买数据建模为节点-边关系图，发现隐性关联
-
-2. AI 跨界推理：识别强关联但供给不足的品类组合（如“露营 + 咖啡”、“瑜伽 + 营养补剂”）
-
-3. 可行性验证：评估市场规模、竞争强度、供给门槛三个维度
-
-
-
+1. 关联发现：从跨品类购买数据中识别强关联但供给不足的品类组合（如「瑜伽 + 蛋白粉」共购率高但竞品少 → 蓝海机会）
+2. 可行性验证：综合市场规模、竞争强度、供给门槛三个维度评估
 ### 输出要求
 
 - 5 个跨界产品方向，每个标注关联强度和供给密度
@@ -382,15 +380,13 @@
 
 <h2 class="h2">知己知彼，AI 自动拆解竞品</h2>
 
-<button onclick="document.getElementById(&quot;prompt-modal-5&quot;).style.display=&quot;flex&quot;" style="position:absolute;top:16px;right:16px;z-index:100;background:var(--accent);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer;font-weight:600">💡 竞品分析 Prompt</button>
-
 <div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
 
-<div class="card"><h4>💡 拆价格：盯住怎么变价</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 标价/券后价/促销标签（🏷️ Keepa + 魔镜市场情报 每日抓取）→ 📈 Prophet + LSTM → 📊 7天价格走势预测 + 异动秒级告警 + 调价建议</p></div>
+<div class="card" style="position:relative"><button onclick="document.getElementById(&quot;prompt-modal-5a&quot;).style.display=&quot;flex&quot;" style="position:absolute;top:8px;right:8px;background:var(--accent);color:#fff;border:none;padding:2px 8px;border-radius:4px;font-size:11px;cursor:pointer;font-weight:600;z-index:10">📋 Prompt</button><h4>💡 拆价格：盯住怎么变价</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 标价/券后价/促销标签（🏷️ Keepa + 魔镜市场情报 每日抓取）→ 📈 Prophet + LSTM → 📊 7天价格走势预测 + 异动秒级告警 + 调价建议<br><span style="font-size:11px;color:var(--text-3)"><b>📈 Prophet</b>（Meta 开源算法库）：擅长分解趋势、季节性、节假日效应，可解释性强<br><b>🧠 LSTM</b>（Google 提出预测模型）：擅长捕捉非线性长程依赖，<br><br><span style="color:var(--text-3)">☁️ 零代码替代服务：</span><span style="font-size:10px;color:var(--text-3)">AWS Forecast &nbsp;|&nbsp; Google Vertex AI &nbsp;|&nbsp; Azure AutoML &nbsp;|&nbsp; 阿里云 PAI &nbsp;|&nbsp; 华为云 ModelArts</span></p></div>
 
-<div class="card"><h4>🔍 拆产品：看图识别属性</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 竞品主图（🔧 八爪鱼 爬取商品页）→ 🧠 GPT-4V 识别 领型/袖长/面料/风格 → CLIP 向量聚类 → 🏷️ 竞品风格标签 + 自动归类</p></div>
+<div class="card" style="position:relative"><button onclick="document.getElementById(&quot;prompt-modal-5b&quot;).style.display=&quot;flex&quot;" style="position:absolute;top:8px;right:8px;background:var(--accent);color:#fff;border:none;padding:2px 8px;border-radius:4px;font-size:11px;cursor:pointer;font-weight:600;z-index:10">📋 Prompt</button><h4>🔍 拆产品：看图识别属性</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 竞品主图（🔧 八爪鱼 爬取商品页）→ 🧠 GPT-4V 识别 领型/袖长/面料/风格 + CLIP 向量聚类 → 🏷️ 竞品风格标签 + 自动归类</p></div>
 
-<div class="card"><h4>💡 拆全局：自动出 SWOT 报告（优势·劣势·机会·威胁）</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 价格/属性/评论/上新数据（🔧 八爪鱼 + Keepa 多源聚合）→ 🧠 GPT-4o → 📊 结构化 SWOT 报告 + 自动填入 PPT + 每周推送管理群</p></div>
+<div class="card" style="position:relative"><button onclick="document.getElementById(&quot;prompt-modal-5c&quot;).style.display=&quot;flex&quot;" style="position:absolute;top:8px;right:8px;background:var(--accent);color:#fff;border:none;padding:2px 8px;border-radius:4px;font-size:11px;cursor:pointer;font-weight:600;z-index:10">📋 Prompt</button><h4>💡 拆全局：自动出 SWOT 报告（优势·劣势·机会·威胁）</h4><p class="dim" style="font-size:13px"><b>流程</b>：📥 价格/属性/评论/上新数据（🔧 八爪鱼 + Keepa 多源聚合）→ 🧠 GPT-4o → 📊 结构化 SWOT 报告 + 自动填入 PPT + 每周推送管理群</p></div>
 
 
 
@@ -400,71 +396,84 @@
 
 
 
-<!-- 竞品分析提示词弹窗 -->
-
-<div id="prompt-modal-5" onclick="this.style.display=&quot;none&quot;" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center">
-
-<div onclick="event.stopPropagation()" style="background:var(--bg);border-radius:12px;padding:28px 32px;max-width:800px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.4);position:relative">
-
-<button onclick="document.getElementById(&quot;prompt-modal-5&quot;).style.display=&quot;none&quot;" style="position:sticky;top:0;float:right;background:var(--bg-2);border:1px solid var(--line);border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;color:var(--text-3);z-index:1">&times;</button>
-
-<h2 style="margin:0 0 16px;font-size:22px">💡 竞品分析 Prompt</h2>
-
-<pre style="white-space:pre;font-family:Consolas,'Courier New',monospace;font-size:13px;line-height:1.6;color:var(--text-1);background:var(--bg-2);padding:20px;border-radius:8px;overflow-x:auto;margin:0"># 竞品分析 Prompt 模板
 
 
-
-```
+<!-- 拆价格提示词弹窗 -->
+<div id="prompt-modal-5a" onclick="this.style.display=&quot;none&quot;" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center">
+<div onclick="event.stopPropagation()" style="background:var(--bg);border-radius:12px;padding:28px 32px;max-width:750px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.4);position:relative">
+<button onclick="document.getElementById(&quot;prompt-modal-5a&quot;).style.display=&quot;none&quot;" style="position:sticky;top:0;float:right;background:var(--bg-2);border:1px solid var(--line);border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;color:var(--text-3);z-index:1">&times;</button>
+<h2 style="margin:0 0 16px;font-size:22px">💡 拆价格 Prompt</h2>
+<pre style="white-space:pre;font-family:Consolas,'Courier New',monospace;font-size:13px;line-height:1.6;color:var(--text-1);background:var(--bg-2);padding:20px;border-radius:8px;overflow-x:auto;margin:0"># 竞品价格分析 Prompt
 
 你是一个电商竞品分析师。请基于提供的竞品价格数据，完成以下分析：
 
-
-
 【输入数据】
-
 - 竞品 X 近 7 天每日标价、券后价、促销标签（满减/秒杀/会员价）
-
 - 竞品 X 近 30 天价格历史（用于对比趋势）
-
 - 平台大促日历（618/双11/品类日等节点标注）
 
+【分析任务】
+1. 价格波动识别：标注 7 天内所有调价节点，计算幅度、频率、方向
+2. 策略模式判定：高频调价/阶梯降价/活动前涨价/跟随定价/清仓甩卖
+3. 营销意图推测：冲销量/清库存/拉新客/利润收割/防守阻击
+4. 应对建议：针对每种意图给出 3 条可执行对策，标注优先级
 
+【输出格式】 Markdown 表格：时间 | 动作 | 模式 | 意图 | 我方对策 | 优先级
+末尾附 200 字结论摘要，给出「跟进 / 观望 / 反击」建议。</pre>
+</div>
+</div>
+
+<!-- 拆产品提示词弹窗 -->
+<div id="prompt-modal-5b" onclick="this.style.display=&quot;none&quot;" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center">
+<div onclick="event.stopPropagation()" style="background:var(--bg);border-radius:12px;padding:28px 32px;max-width:750px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.4);position:relative">
+<button onclick="document.getElementById(&quot;prompt-modal-5b&quot;).style.display=&quot;none&quot;" style="position:sticky;top:0;float:right;background:var(--bg-2);border:1px solid var(--line);border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;color:var(--text-3);z-index:1">&times;</button>
+<h2 style="margin:0 0 16px;font-size:22px">🔍 拆产品 Prompt</h2>
+<pre style="white-space:pre;font-family:Consolas,'Courier New',monospace;font-size:13px;line-height:1.6;color:var(--text-1);background:var(--bg-2);padding:20px;border-radius:8px;overflow-x:auto;margin:0"># 竞品产品属性识别 Prompt
+
+你是一个电商产品分析师。请基于提供的竞品主图，识别以下属性：
+
+【输入数据】
+- 竞品 X 商品主图（正面/背面/细节图）
+- 同品类 TOP 10 竞品图片（用于对比归类）
 
 【分析任务】
-
-1. 价格波动识别：标注 7 天内所有调价节点，计算调价幅度（%）、调价频率（次/天）、调价方向（涨/降）
-
-2. 策略模式判定：将价格行为归类为以下模式之一或多选——
-
-   · 高频调价（日均调价 ≥ 2 次，小幅浮动）
-
-   · 阶梯降价（逐日递减，配合活动倒计时）
-
-   · 活动前涨价（大促前 3-7 天提价，活动当天"打折"）
-
-   · 跟随定价（与我方/行业价格走势强相关）
-
-   · 清仓甩卖（持续降价 + 库存告急信号）
-
-3. 营销意图推测：基于策略模式 + 促销标签 + 时间节点，推断竞品当前意图——冲销量/清库存/拉新客/利润收割/防守阻击
-
-4. 应对建议：针对每种意图，给出我方 3 条可执行对策（调价/促销/产品差异化），标注优先级（高/中/低）
-
-
+1. 视觉属性提取：领型/袖长/面料/图案/配件/模特身高/场景风格
+2. 风格归类：韩系/日系/欧美/国潮/原创设计
+3. 差异化点分析：与同品类竞品相比，该产品的独特卖点
 
 【输出格式】
-
-使用 Markdown 表格输出，每行一项分析，含：时间 | 动作 | 模式 | 意图 | 我方对策 | 优先级
-
-末尾附 200 字以内的结论摘要，给出「跟进 / 观望 / 反击」建议。
-
-```</pre>
-
+每张图输出 JSON：{"属性":{...},"风格":"...","差异化":"..."}
+汇总表格：商品名 | 领型 | 袖长 | 面料 | 风格 | 独特卖点</pre>
+</div>
 </div>
 
-</div>
+<!-- 拆全局提示词弹窗 -->
+<div id="prompt-modal-5c" onclick="this.style.display=&quot;none&quot;" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center">
+<div onclick="event.stopPropagation()" style="background:var(--bg);border-radius:12px;padding:28px 32px;max-width:750px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.4);position:relative">
+<button onclick="document.getElementById(&quot;prompt-modal-5c&quot;).style.display=&quot;none&quot;" style="position:sticky;top:0;float:right;background:var(--bg-2);border:1px solid var(--line);border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;color:var(--text-3);z-index:1">&times;</button>
+<h2 style="margin:0 0 16px;font-size:22px">📊 拆全局 SWOT Prompt</h2>
+<pre style="white-space:pre;font-family:Consolas,'Courier New',monospace;font-size:13px;line-height:1.6;color:var(--text-1);background:var(--bg-2);padding:20px;border-radius:8px;overflow-x:auto;margin:0"># 竞品 SWOT 分析 Prompt
 
-<div class="deck-footer"><span class="dim2">产品研发</span><span>5 / 23</span></div>
+你是一个电商战略分析师。请基于以下多源数据，生成竞品 SWOT 报告：
+
+【输入数据】
+- 价格数据：近 30 天标价/券后价/促销变动
+- 产品属性：款式/材质/功能/规格
+- 用户评论：好评/差评高频词
+- 上新频率：近 90 天新品数量/节奏
+
+【分析任务】
+按 SWOT 框架输出：
+- S 优势：价格/产品/运营方面的竞争优势
+- W 劣势：差评集中的缺点/上新缓慢/价格过高
+- O 机会：市场空白/竞品弱点/季节窗口
+- T 威胁：竞品价格战/新品快速跟进/平台规则变化
+
+【输出格式】
+结构化 SWOT 报告，每项 2-3 条，带具体数据支撑。
+末尾附 200 字综合建议：跟进 / 观望 / 反击。</pre>
+</div>
+</div><div class="deck-footer"><span class="dim2">产品研发</span><span>5 / 23</span></div>
 
 <div class="notes">竞品拆解的重点不是看竞品卖多少钱，而是理解对方的价格策略和营销意图。GPT-4V 可以直接看懂竞品图里的设计元素。每周一份自动生成的SWOT报告可以大幅降低分析师的重复劳动。</div>
 
