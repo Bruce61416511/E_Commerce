@@ -658,77 +658,382 @@
 
 
 
-<section class="slide" data-title="AI商品图与视频">
 
-<p class="kicker">01 · 视觉内容生成</p>
 
-<h2 class="h2">从一张白底图到全渠道素材</h2>
 
-<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
+<section class="slide" data-title="AI内容供应链">
 
-<div class="card"><h4>🤖 AI 商品图流水线</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>SAM2</b> 自动抠图 → <b>ControlNet</b> Canny+Depth 精准控图 → <b>SDXL</b> 场景融合<br>💡 ComfyUI 工作流一键跑百张 · Real-ESRGAN 超分辨率<br></p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">白底→场景</span><span class="pill" style="font-size:11px">多尺寸输出</span><span class="pill" style="font-size:11px">虚拟试穿</span></div></div>
+<p class="kicker">内容创建 · 全景</p>
 
-<div class="card"><h4>💡 AI 短视频自动生成</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>SVD</b> 多角度图→360°旋转视频 → <b>CosyVoice</b> AI 配音 → <b>CapCut API</b> 字幕叠加<br>💡 FFmpeg 一键合成：画面+配音+字幕+BGM<br></p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">9:16 竖版</span><span class="pill" style="font-size:11px">爆款模板</span><span class="pill" style="font-size:11px">AI 配音</span></div></div>
+<h2 class="h2">AI 驱动的内容供应链</h2>
+
+<div style="display:flex;gap:6px;align-items:stretch;justify-content:center;flex-wrap:wrap;margin-top:12px">
+
+<div class="card" style="padding:14px 12px;text-align:center;flex:1;min-width:130px">
+<span class="pill pill-accent" style="font-size:16px;padding:4px 10px">①</span>
+<h4 style="margin:8px 0 4px;font-size:15px">叙事框架</h4>
+<p style="font-size:11px;color:var(--text-2);margin:0;line-height:1.5">预制专业模板<br>逻辑清晰·有说服力·合规</p>
+</div>
+
+<span style="font-size:22px;color:var(--accent);display:flex;align-items:center;font-weight:700">→</span>
+
+<div class="card" style="padding:14px 12px;text-align:center;flex:1;min-width:130px">
+<span class="pill pill-accent" style="font-size:16px;padding:4px 10px">②</span>
+<h4 style="margin:8px 0 4px;font-size:15px">素材库</h4>
+<p style="font-size:11px;color:var(--text-2);margin:0;line-height:1.5">AI 分类标签<br>秒级检索·一键复用</p>
+</div>
+
+<span style="font-size:22px;color:var(--accent);display:flex;align-items:center;font-weight:700">→</span>
+
+<div class="card" style="padding:14px 12px;text-align:center;flex:1;min-width:130px">
+<span class="pill pill-accent" style="font-size:16px;padding:4px 10px">③</span>
+<h4 style="margin:8px 0 4px;font-size:15px">批量生产</h4>
+<p style="font-size:11px;color:var(--text-2);margin:0;line-height:1.5">文案+脚本+图文+视频<br>AI 规模化自动产出</p>
+</div>
+
+<span style="font-size:22px;color:var(--accent);display:flex;align-items:center;font-weight:700">→</span>
+
+<div class="card" style="padding:14px 12px;text-align:center;flex:1;min-width:130px">
+<span class="pill pill-accent" style="font-size:16px;padding:4px 10px">④</span>
+<h4 style="margin:8px 0 4px;font-size:15px">KOC 分发</h4>
+<p style="font-size:11px;color:var(--text-2);margin:0;line-height:1.5">AI 匹配达人<br>自动推送·追踪效果</p>
+</div>
+
+<span style="font-size:22px;color:var(--accent);display:flex;align-items:center;font-weight:700">→</span>
+
+<div class="card" style="padding:14px 12px;text-align:center;flex:1;min-width:130px">
+<span class="pill pill-accent" style="font-size:16px;padding:4px 10px">⑤</span>
+<h4 style="margin:8px 0 4px;font-size:15px">数据闭环</h4>
+<p style="font-size:11px;color:var(--text-2);margin:0;line-height:1.5">回收→分析→迭代<br>日循环持续提升</p>
+</div>
 
 </div>
 
-<div class="deck-footer"><span class="dim2">内容创建</span><span>13 / 27</span></div>
+<div style="position:relative;margin-top:8px;height:60px">
+<svg width="100%" height="60" viewBox="0 0 900 60" preserveAspectRatio="none" style="position:absolute;top:0;left:0">
+  <path d="M800 4 L800 40 Q800 52 788 52 L520 52 Q508 52 508 40 L508 4" stroke="var(--accent)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="508,4 514,10 502,10" fill="var(--accent)"/>
+</svg>
+<div style="position:absolute;top:46px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:600;white-space:nowrap">数据回流，优化模板与策略</div>
+</div>
 
-<div class="notes">商品图流水线的关键是 ComfyUI——一个节点式工作流工具。从抠图到场景融合到多尺寸输出，一次配置，批量跑。视频端用 SVD 做360°旋转展示，CapCut API 自动加字幕，CosyVoice AI配音。一个人一天能产出过去一个团队一周的量。</div>
+<div class="deck-footer"><span class="dim2">内容创建</span><span>10 / 27</span></div>
+
+<div class="notes">内容供应链全景图：从叙事框架到数据闭环，五个环节串联成AI驱动的自动化内容生产线。核心不是工具本身，而是“模板沉淀→批量生产→分发回收→迭代优化”的飞轮效应。</div>
 
 </section>
 
 
 
-<section class="slide" data-title="AI文案生成">
+<section class="slide" data-title="叙事框架">
 
-<p class="kicker">02 · AI 文案生成</p>
+<button onclick="document.getElementById('prompt-narrative').style.display='flex'" style="position:absolute;top:16px;right:16px;z-index:100;background:var(--accent);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer;font-weight:600">📋 模板提炼 Prompt</button>
 
-<h2 class="h2">三管齐下：标题 · 详情 · 多语言</h2>
+<p class="kicker">内容供应链 · ①</p>
 
-<div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+<h2 class="h2">AI 叙事框架</h2>
 
-<div class="card"><div class="h2" style="margin:0;font-size:40px">🔍</div><h4>标题 SEO 优化</h4><p class="dim" style="font-size:13px">生意参谋/ABA 提取高转化关键词 → BERT 相关性筛选 → LLM 在平台规则下生成多版候选 → 附带 SEO 评分</p><p class="dim" style="font-size:12px;margin:8px 0 0;font-style:italic">"核心关键词前置、避免堆砌、突出差异化"</p></div>
+<p class="lede" style="max-width:640px;margin-top:4px">从历史爆款反推模板 → 合规审查 → 多模态适配，文字·图片·视频全覆盖</p>
 
-<div class="card"><div class="h2" style="margin:0;font-size:40px">📊</div><h4>详情页文案</h4><p class="dim" style="font-size:13px">商品参数+场景+竞品好评词+差评避坑 → LLM 生成五大模块：痛点→方案→卖点→规格→场景 → 3版候选</p><p class="dim" style="font-size:12px;margin:8px 0 0;font-style:italic">"温暖治愈风格，强调懒人友好"</p></div>
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:10px">
 
-<div class="card"><div class="h2" style="margin:0;font-size:40px">📊</div><h4>多语言本地化</h4><p class="dim" style="font-size:13px">DeepL + GPT-4o 本地化改写（非直译）→ 文化适配检查（颜色禁忌/宗教敏感词）→ 日语敬语·英语短句·阿拉伯语 RTL</p><p class="dim" style="font-size:12px;margin:8px 0 0;font-style:italic">"美式电商风格：强调 benefit 而非 feature"</p></div>
+<div class="card" style="padding:16px 20px">
+<div class="row" style="align-items:flex-start;gap:12px">
+<span class="pill pill-accent" style="flex-shrink:0">① 反推</span>
+<div style="flex:1">
+<p style="margin:0 0 4px;font-size:14px;font-weight:600">从历史爆款中提炼模板</p>
+<p style="margin:0;font-size:13px;color:var(--text-2)">GPT-4o 分析高转化率的文字/图片/视频 → 提取共性结构（文案四段式、构图公式、脚本框架）+ 平台算法偏好 → 沉淀为可复用的模板库<br><span style="font-size:11px;color:var(--text-3)">共性结构：文案四段式 = 痛点→方案→背书→行动 &nbsp;|&nbsp; 构图公式 = 主图占比×场景×文字位×配色 &nbsp;|&nbsp; 脚本框架 = 开篇钩子→展示→说服→转化引导<br>平台偏好：Amazon 重关键词密度 &nbsp;|&nbsp; TikTok 重前3秒完播率 &nbsp;|&nbsp; 小红书重真实种草感+收藏率</span></p>
+</div>
+</div>
+</div>
+
+<div class="card" style="padding:16px 20px">
+<div class="row" style="align-items:flex-start;gap:12px">
+<span class="pill pill-accent" style="flex-shrink:0">② 合规审查</span>
+<div style="flex:1">
+<p style="margin:0 0 4px;font-size:14px;font-weight:600">生成前自动拦截风险</p>
+<p style="margin:0;font-size:13px;color:var(--text-2)">文字端检测违规词（极限词、医疗宣称、虚假促销）；图片/视频端检测敏感画面、侵权素材、平台违禁内容。对接各平台规则库，生成即过审</p>
+</div>
+</div>
+</div>
+
+<div class="card" style="padding:16px 20px">
+<div class="row" style="align-items:flex-start;gap:12px">
+<span class="pill pill-accent" style="flex-shrink:0">③ 多模态适配</span>
+<div style="flex:1">
+<p style="margin:0 0 4px;font-size:14px;font-weight:600">一套叙事，全渠道输出</p>
+<p style="margin:0;font-size:13px;color:var(--text-2)">一个品，一次叙事，针对不同平台偏好自动适配，品牌调性一致</p>
+</div>
+</div>
+</div>
 
 </div>
 
-<div class="deck-footer"><span class="dim2">内容创建</span><span>14 / 27</span></div>
 
-<div class="notes">文案的三个层次：标题解决"搜得到"，详情解决"看得懂想买"，多语言解决"卖全球"。核心技巧——不是机器翻译，是本地化改写。日语用敬语，英语短句驱动，阿拉伯语RTL适配。每个SKU生成3个版本，用多臂老虎机算法自动A/B测试。</div>
+<div id="prompt-narrative" onclick="this.style.display='none'" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center">
+
+<div onclick="event.stopPropagation()" style="background:var(--bg);border-radius:12px;padding:28px 32px;max-width:750px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.4);position:relative">
+
+<button onclick="document.getElementById('prompt-narrative').style.display='none'" style="position:sticky;top:0;float:right;background:var(--bg-2);border:1px solid var(--line);border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;color:var(--text-3);z-index:1">&times;</button>
+
+<h2 style="margin:0 0 16px;font-size:22px">📋 模板提炼 Prompt</h2>
+
+<pre style="white-space:pre;font-family:Consolas,'Courier New',monospace;font-size:13px;line-height:1.6;color:var(--text-1);background:var(--bg-2);padding:20px;border-radius:8px;overflow-x:auto;margin:0"># 内容模板提炼 · Prompt
+
+你是一个内容策略分析师。请基于输入的视频（或文字/图片素材），完成模板提炼与入库：
+
+【输入】
+- 一个高转化率的视频（提供口播文本 + 分镜描述 + 关键帧截图）
+- 该视频的历史效果数据（播放量、完播率、转化率、互动率）
+
+【分析任务】
+1. 结构拆解：识别视频的叙事节奏
+   - 开篇钩子：前 3 秒用了什么手法（痛点/悬念/反常识/强视觉）？
+   - 产品展示：如何演示核心卖点（对比/场景化/数据可视化）？
+   - 说服构建：用了什么信任元素（认证/好评/专家/KOL）？
+   - 转化引导：CTA 的位置、话术、紧迫感策略
+
+2. 模板提炼：将以上分析抽象为可复用的模板
+   - 脚本框架：每段的时长占比、话术模式、情绪曲线
+   - 视觉模板：构图规律、配色偏好、字幕风格
+   - 标注适用平台及平台偏好（Amazon / TikTok / 小红书 / Shopee）
+
+3. 向量化入库
+   - 模板输出为结构化 JSON（含框架 + 标签 + 平台偏好 + 效果基线）
+   - 生成文本 embedding（OpenAI text-embedding-3-small），写入向量数据库
+   - 标签体系：品类、风格、平台、时长、转化率区间
+
+【输出格式】
+JSON，每个字段含具体可执行的模板内容：
+
+{
+  "template_id": "uuid",
+  "type": "video",
+  "source_video": {
+    "title": "原始视频标题",
+    "duration": "28s",
+    "platform": "TikTok",
+    "metrics": {"views": 2100000, "completion_rate": 0.68, "conversion_rate": 0.092}
+  },
+  "framework": {
+    "hook": {
+      "duration_ratio": "18%",
+      "pattern": "场景痛点",
+      "transcript_template": "可复用的口播模板，{商品名}替换即可",
+      "visual_rule": "画面规则描述"
+    },
+    "showcase": {
+      "duration_ratio": "43%",
+      "pattern": "使用过程演示",
+      "transcript_template": "演示话术模板",
+      "visual_rule": "画面规则描述"
+    },
+    "persuasion": {
+      "duration_ratio": "21%",
+      "pattern": "数据+场景想象",
+      "transcript_template": "信任构建话术模板",
+      "visual_rule": "画面规则描述"
+    },
+    "cta": {
+      "duration_ratio": "18%",
+      "pattern": "限时福利",
+      "transcript_template": "转化引导话术模板",
+      "visual_rule": "画面规则描述"
+    }
+  },
+  "visual_template": {
+    "composition": "70% 产品画面, 20% 场景, 10% 文字弹窗",
+    "color_scheme": "配色偏好",
+    "subtitle_style": "字幕位置/字号/颜色",
+    "pace": "快节奏, 平均 2s/镜头"
+  },
+  "platform": ["TikTok"],
+  "platform_preference": {"TikTok": "该平台对应的算法偏好"},
+  "performance_baseline": {"avg_completion": 0.62, "avg_ctr": 0.08, "avg_conversion": 0.07},
+  "tags": ["痛点型", "便携", "小家电", "场景化", "快节奏"]
+}
+
+入库后，后续新品可通过向量相似度检索匹配最佳模板。</pre>
+
+</div>
+
+</div>
+
+
+<div class="deck-footer"><span class="dim2">内容供应链</span><span>12 / 27</span></div>
 
 </section>
 
 
 
-<section class="slide" data-title="内容审核与案例">
+<section class="slide" data-title="智能素材库">
 
-<p class="kicker">03 · 内容审核 & 案例</p>
+<p class="kicker">内容供应链 · ②</p>
 
-<h2 class="h2">既要跑得快，也要跑得稳</h2>
+<h2 class="h2">AI 智能素材库</h2>
 
-<div class="grid g2 mt-l" style="align-items:start">
+<p class="lede" style="max-width:640px;margin-top:4px">自动分类标签，秒级检索，一键复用历史素材</p>
 
-<div><div class="card mb-m"><h4>🛡️ 合规审核三层防线</h4><p class="dim" style="font-size:13px;margin:0">① 规则引擎：违禁词库正则匹配（最/第一/100%）<br>② GPT-4V 多模态：图片侵权检测 + 敏感内容过滤<br>③ LLM 语义判断：隐性违规识别 + 修改建议输出</p></div>
+<div class="grid g2 mt-m anim-stagger-list" data-anim-target style="gap:10px">
 
-<div class="card"><h4>💡 A/B 测试自动轮换</h4><p class="dim" style="font-size:13px;margin:0">多臂老虎机算法自动分配流量：前期均分探索 → 后期向高转化版本倾斜 → LLM 解读数据 → 下一轮素材迭代建议</p></div></div>
+<div class="card" style="padding:16px 20px">
+<h4 style="margin:0 0 6px">自动入库</h4>
+<p style="margin:0;font-size:13px;color:var(--text-2)">图片/视频/文案上传即自动打标（CLIP 多模态识别 + GPT-4o 语义标签），按品类、风格、渠道、效果分库</p>
+</div>
 
-<div class="card card-outline" style="border-color:var(--accent-2);background:var(--grad-soft)">
+<div class="card" style="padding:16px 20px">
+<h4 style="margin:0 0 6px">智能检索</h4>
+<p style="margin:0;font-size:13px;color:var(--text-2)">自然语言搜索（"去年618爆款红色连衣裙场景图"），RAG 向量检索 + 元数据过滤，秒级命中</p>
+</div>
 
-<p class="kicker" style="color:var(--accent-2)">💡 案例：某跨境卖家</p>
+<div class="card" style="padding:16px 20px">
+<h4 style="margin:0 0 6px">一键复用</h4>
+<p style="margin:0;font-size:13px;color:var(--text-2)">历史爆款素材一键换品复用，保留已验证的构图/配色/文案结构，新品快速获得成熟素材</p>
+</div>
 
-<div style="text-align:center"><span class="h1 gradient-text" style="font-size:88px;line-height:1">-80%</span><p class="dim" style="margin:4px 0">人力成本降低</p><p class="dim" style="font-size:12px;margin:0">AI 生成 3000+ SKU 素材<br>ComfyUI 批量流水线 + CapCut 模板化剪辑<br>1人代替原5人内容团队</p></div>
-
+<div class="card" style="padding:16px 20px">
+<h4 style="margin:0 0 6px">版本管理</h4>
+<p style="margin:0;font-size:13px;color:var(--text-2)">素材迭代自动记录版本，A/B 测试结果关联，优胜劣汰自动归档</p>
 </div>
 
 </div>
 
-<div class="deck-footer"><span class="dim2">内容创建</span><span>15 / 27</span></div>
+<div class="deck-footer"><span class="dim2">内容供应链</span><span>13 / 27</span></div>
 
-<div class="notes">内容审核不能省。三层防线：先规则过滤明显违规词，再用GPT-4V看图片有没有侵权logo，最后LLM做语义级别的隐性违规判断。A/B测试用多臂老虎机自动调权——不需要等统计学显著，每天实时优化流量分配。案例：3000+SKU，1人干5人的活，成本降80%。</div>
+</section>
+
+
+
+<section class="slide" data-title="批量生产">
+
+<p class="kicker">内容供应链 · ③</p>
+
+<h2 class="h2">AI 批量生产与渲染</h2>
+
+<p class="lede" style="max-width:640px;margin-top:4px">文案 + 脚本 + 图文 + 视频，AI 规模化自动产出</p>
+
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:10px">
+
+<div class="card" style="padding:16px 20px">
+<div class="row" style="align-items:flex-start;gap:12px">
+<span class="pill pill-accent" style="flex-shrink:0">文案</span>
+<div style="flex:1">
+<p style="margin:0 0 2px;font-size:14px;font-weight:600">匹配模板 → 填入商品 → 批量生成</p>
+<p style="margin:0;font-size:13px;color:var(--text-2)">向量检索匹配最优文案模板（GPT-4o + 模板引擎），自动填入商品信息 → 批量产出标题 20 个 + 详情页 5 版 + 多语言本地化，千品千面</p>
+</div>
+</div>
+</div>
+
+<div class="card" style="padding:16px 20px">
+<div class="row" style="align-items:flex-start;gap:12px">
+<span class="pill pill-accent" style="flex-shrink:0">图片</span>
+<div style="flex:1">
+<p style="margin:0 0 2px;font-size:14px;font-weight:600">选定构图模板 → 替换商品+场景 → 批量渲染</p>
+<p style="margin:0;font-size:13px;color:var(--text-2)">向量检索匹配最优视觉模板（构图×场景×配色×模特），ComfyUI 工作流自动抠图（SAM2）+ 场景融合（SDXL），多尺寸/多风格一键批量出图</p>
+</div>
+</div>
+</div>
+
+<div class="card" style="padding:16px 20px">
+<div class="row" style="align-items:flex-start;gap:12px">
+<span class="pill pill-accent" style="flex-shrink:0">视频</span>
+<div style="flex:1">
+<p style="margin:0 0 2px;font-size:14px;font-weight:600">选定脚本模板 → 口播+分镜+合成 → 流水线生成</p>
+<p style="margin:0;font-size:13px;color:var(--text-2)">向量检索匹配最优脚本框架（开篇钩子→展示→说服→转化引导），SVD 生成 360° 旋转 + CosyVoice AI 配音 + CapCut API 字幕叠加 + FFmpeg 合成，百条视频自动产出</p>
+</div>
+</div>
+</div>
+
+<div class="card" style="padding:16px 20px">
+<div class="row" style="align-items:flex-start;gap:12px">
+<span class="pill pill-accent" style="flex-shrink:0">多平台</span>
+<div style="flex:1">
+<p style="margin:0 0 2px;font-size:14px;font-weight:600">模板自带平台参数 → 一键输出全渠道规格</p>
+<p style="margin:0;font-size:13px;color:var(--text-2)">模板中已存储对应平台的规格偏好（尺寸/时长/字幕位置/关键词密度），一次生产自动适配 Amazon / TikTok / Shopee / Instagram / 小红书全渠道</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="deck-footer"><span class="dim2">内容供应链</span><span>14 / 27</span></div>
+
+</section>
+
+
+
+<section class="slide" data-title="KOC分发">
+
+<p class="kicker">内容供应链 · ④</p>
+
+<h2 class="h2">KOC 矩阵智能分发</h2>
+
+<p class="lede" style="max-width:640px;margin-top:4px">AI 匹配达人，自动推送内容，追踪投放效果</p>
+
+<div class="grid g2 mt-m anim-stagger-list" data-anim-target style="gap:10px">
+
+<div class="card" style="padding:16px 20px">
+<h4 style="margin:0 0 6px">达人匹配</h4>
+<p style="margin:0;font-size:13px;color:var(--text-2)">AI 分析 KOC 粉丝画像、内容风格、历史带货数据，自动匹配最适合的达人和素材组合</p>
+</div>
+
+<div class="card" style="padding:16px 20px">
+<h4 style="margin:0 0 6px">批量分发</h4>
+<p style="margin:0;font-size:13px;color:var(--text-2)">一键推送至多个 KOC，附带定制化发布文案和使用指导，降低沟通成本</p>
+</div>
+
+<div class="card" style="padding:16px 20px">
+<h4 style="margin:0 0 6px">效果追踪</h4>
+<p style="margin:0;font-size:13px;color:var(--text-2)">实时监控每个 KOC 的曝光、互动、转化数据，自动生成达人效果排行榜</p>
+</div>
+
+<div class="card" style="padding:16px 20px">
+<h4 style="margin:0 0 6px">预算优化</h4>
+<p style="margin:0;font-size:13px;color:var(--text-2)">AI 动态分配预算，高 ROI 达人自动加投，低效达人自动停投或换品</p>
+</div>
+
+</div>
+
+<div class="deck-footer"><span class="dim2">内容供应链</span><span>15 / 27</span></div>
+
+</section>
+
+
+
+<section class="slide" data-title="数据闭环">
+
+<p class="kicker">内容供应链 · ⑤</p>
+
+<h2 class="h2">数据驱动日循环</h2>
+
+<p class="lede" style="max-width:640px;margin-top:4px">回收 → 分析 → 迭代，形成每日闭环，持续提升效果</p>
+
+<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:10px">
+
+<div class="card" style="padding:16px 20px">
+<div class="row" style="align-items:flex-start;gap:12px">
+<span class="pill pill-accent" style="flex-shrink:0">数据回收</span>
+<div style="flex:1"><p style="margin:0;font-size:13px">全链路埋点：曝光 → 点击 → 加购 → 成交 → 退款，每个素材独立追踪 ID，每笔订单都能追溯到是哪条素材带来的</p></div>
+</div>
+</div>
+
+<div class="card" style="padding:16px 20px">
+<div class="row" style="align-items:flex-start;gap:12px">
+<span class="pill pill-accent" style="flex-shrink:0">智能分析</span>
+<div style="flex:1"><p style="margin:0;font-size:13px">GPT-4o 解读数据，自动输出日报：哪些模板表现好、哪些 KOC 值得续、哪些品类需要调策略</p></div>
+</div>
+</div>
+
+<div class="card" style="padding:16px 20px">
+<div class="row" style="align-items:flex-start;gap:12px">
+<span class="pill pill-accent" style="flex-shrink:0">策略迭代</span>
+<div style="flex:1"><p style="margin:0;font-size:13px">高转化模板自动加权推荐，低效模板降权或淘汰；反馈至 ③ 批量生产环节，次日素材自动优化</p></div>
+</div>
+</div>
+
+</div>
+
+<div class="deck-footer"><span class="dim2">内容供应链</span><span>16 / 27</span></div>
 
 </section>
 
