@@ -1217,6 +1217,48 @@ JSON，每个字段含具体可执行的模板内容：
 
 </section>
 
+
+
+<section class="slide" data-title="供应链工具现状">
+
+<p class="kicker">供应链 · 工具现状</p>
+
+<h2 class="h2">有没有现成的全自动工具？</h2>
+
+<div class="grid g2 mt-m" style="gap:10px">
+
+<div class="card" style="padding:14px 18px;background:var(--good-bg);border:1px solid var(--good)">
+<h4 style="margin:0 0 6px;color:var(--good)">✅ 大型品牌/平台（已打通）</h4>
+<div style="font-size:12px;line-height:1.6;color:var(--text-2)">
+
+<p style="margin:0 0 6px"><b>SAP</b><span style="color:var(--text-3);font-size:10px">（厂商）</span> · <b>S/4HANA + IBP</b><span style="color:var(--text-3);font-size:10px">（产品）</span><br>安全库存（自研 Monte Carlo）+ 多仓调拨（自研整数规划）+ 库龄预警（规则引擎）<br><span style="color:var(--text-3);font-size:10px">三模块内部 API 打通，百万起/年，6~18个月部署</span></p>
+
+<p style="margin:0 0 6px"><b>Microsoft</b><span style="color:var(--text-3);font-size:10px">（厂商）</span> · <b>Dynamics 365 SCM</b><span style="color:var(--text-3);font-size:10px">（产品）</span><br>同上，Azure 云原生，几十万起/年</p>
+
+
+
+</div>
+</div>
+
+<div class="card" style="padding:14px 18px">
+<h4 style="margin:0 0 6px;color:var(--warn, #e67e22)">⚠️ 中小卖家（功能一体，算法简化）</h4>
+<div style="font-size:12px;line-height:1.6;color:var(--text-2)">
+
+<p style="margin:0 0 6px"><b>旺店通 / 聚水潭 / 慧策</b><br>三步都有，但算法精度不同：<br><span style="color:var(--text-3);font-size:10px">安全库存 = 日均销量 × 交期 × 系数（非 Monte Carlo）<br>调拨 = 人工规则（非整数规划）<br>滔销预警 = 规则引擎（能做）</span></p>
+
+<p style="margin:0"><b>📉 自动清仓</b><br>尚无现成 AI 产品，需自拼 GPT-4o + 规则引擎</p>
+
+</div>
+</div>
+
+</div>
+
+
+
+<div class="deck-footer"><span class="dim2">供应链</span><span>21 / 27</span></div>
+
+</section>
+
 <section class="slide tc center" data-title="AI智能客服">
 
 <div style="max-width:780px;margin:0 auto">
@@ -1243,68 +1285,54 @@ JSON，每个字段含具体可执行的模板内容：
 
 <h2 class="h2">从"关键词匹配"到"📋大模型对话引擎"</h2>
 
-<div class="mt-l anim-stagger-list" data-anim-target style="display:flex;flex-direction:column;gap:12px">
+<div class="mt-m" style="display:flex;align-items:stretch;gap:6px">
 
-<div class="card"><div class="row" style="align-items:flex-start;gap:14px"><span class="pill pill-accent" style="flex-shrink:0">对话编排</span><div style="flex:1"><h4 style="margin:0">LangGraph 状态图：问候 → 意图识别 → 信息收集 → 问题解决 → 满意度确认</h4><p class="dim" style="margin:2px 0 0;font-size:12px">GPT-4o / Qwen2.5 对话生成 · BGE-M3 中文向量检索 · RAG 知识库增强 · Function Calling 查订单/退换货</p></div></div></div>
+<div class="card" style="flex:1;text-align:center;padding:14px 8px;min-width:0">
+<div style="font-size:28px;margin-bottom:4px">📥</div>
+<div style="font-size:11px;font-weight:700;color:var(--text-1);margin-bottom:2px">多模态输入</div>
+<div style="font-size:10px;color:var(--text-3);line-height:1.4">文字 / 语音<br>图片</div>
+<div style="font-size:10px;color:var(--text-3);margin-top:3px">Whisper · GPT-4V</div>
+</div>
 
-<div class="card"><div class="row" style="align-items:flex-start;gap:14px"><span class="pill pill-accent" style="flex-shrink:0">意图识别</span><div style="flex:1"><h4 style="margin:0">26 类电商意图分类 + 槽位填充</h4><p class="dim" style="margin:2px 0 0;font-size:12px">查物流 / 退换货 / 改地址 / 催发货 / 商品咨询 / 议价 / 投诉 · 自动抽取订单号/商品名/日期/金额</p></div></div></div>
+<div style="display:flex;align-items:center;color:var(--accent);font-size:20px;font-weight:700;flex-shrink:0">→</div>
 
-<div class="card"><div class="row" style="align-items:flex-start;gap:14px"><span class="pill pill-accent" style="flex-shrink:0">多模态</span><div style="flex:1"><h4 style="margin:0">文本 + 语音 + 图片统一交互</h4><p class="dim" style="margin:2px 0 0;font-size:12px">Whisper ASR → 引擎处理 → CosyVoice TTS · GPT-4V 识别破损商品图 → 自动判断赔付金额</p></div></div></div>
+<div class="card" style="flex:1;text-align:center;padding:14px 8px;min-width:0">
+<div style="font-size:28px;margin-bottom:4px">🏷️</div>
+<div style="font-size:11px;font-weight:700;color:var(--text-1);margin-bottom:2px">意图识别</div>
+<div style="font-size:10px;color:var(--text-3);line-height:1.4">26类意图分类<br>自动抽取关键信息</div>
+<div style="font-size:10px;color:var(--text-3);margin-top:3px">订单号·商品名·日期·金额</div>
+</div>
+
+<div style="display:flex;align-items:center;color:var(--accent);font-size:20px;font-weight:700;flex-shrink:0">→</div>
+
+<div class="card" style="flex:1;text-align:center;padding:14px 8px;min-width:0">
+<div style="font-size:28px;margin-bottom:4px">🔍</div>
+<div style="font-size:11px;font-weight:700;color:var(--text-1);margin-bottom:2px">知识检索</div>
+<div style="font-size:10px;color:var(--text-3);line-height:1.4">语义向量匹配<br>知识库精准召回</div>
+<div style="font-size:10px;color:var(--text-3);margin-top:3px">BGE-M3 · RAG</div>
+</div>
+
+<div style="display:flex;align-items:center;color:var(--accent);font-size:20px;font-weight:700;flex-shrink:0">→</div>
+
+<div class="card" style="flex:1;text-align:center;padding:14px 8px;min-width:0">
+<div style="font-size:28px;margin-bottom:4px">🧠</div>
+<div style="font-size:11px;font-weight:700;color:var(--text-1);margin-bottom:2px">大模型推理</div>
+<div style="font-size:10px;color:var(--text-3);line-height:1.4">生成回答<br>调用业务系统</div>
+<div style="font-size:10px;color:var(--text-3);margin-top:3px">GPT-4o · Function Calling</div>
+</div>
+
+<div style="display:flex;align-items:center;color:var(--accent);font-size:20px;font-weight:700;flex-shrink:0">→</div>
+
+<div class="card" style="flex:1;text-align:center;padding:14px 8px;min-width:0">
+<div style="font-size:28px;margin-bottom:4px">📤</div>
+<div style="font-size:11px;font-weight:700;color:var(--text-1);margin-bottom:2px">多模态回复</div>
+<div style="font-size:10px;color:var(--text-3);line-height:1.4">文字 / 语音<br>最终确认</div>
+<div style="font-size:10px;color:var(--text-3);margin-top:3px">CosyVoice TTS</div>
+</div>
 
 </div>
 
-<div class="deck-footer"><span class="dim2">AI智能客服</span><span>22 / 27</span></div>
-
-<div class="notes">传统客服机器人是关键词if-else，大模型客服是真正理解用户意图。我们用LangGraph编排状态图：用户说什么→意图是什么→需要什么信息→怎么解决→用户满意吗。Function Calling让AI能直接查订单、发起退款。多模态支持意味着用户拍张破损商品图，AI能直接判断严重程度和赔付建议。</div>
-
 </section>
-
-
-
-<section class="slide" data-title="售前售后场景">
-
-<p class="kicker">02 · 服务场景</p>
-
-<h2 class="h2">售前懂需求，售后解问题</h2>
-
-<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
-
-<div class="card"><h4>💬 售前：智能推荐 & 商品对比</h4><div style="font-size:13px;line-height:1.7"><p class="dim" style="margin:4px 0"><b>双塔召回</b>：用户画像 + 浏览历史 → Top50 候选</p><p class="dim" style="margin:4px 0"><b>DeepFM 精排</b>：Top5 最优推荐</p><p class="dim" style="margin:4px 0"><b>LLM 推荐理由</b>：个性化生成，让用户感到"你懂我"</p><p class="dim" style="margin:4px 0"><b>商品对比</b>：全维度参数 + 好评率 + 差评高频词 → 一句话结论</p></div></div>
-
-<div class="card"><h4>💡 售后：退换货 & 投诉处理</h4><div style="font-size:13px;line-height:1.7"><p class="dim" style="margin:4px 0"><b>自动退货</b>：查订单状态 → 判断退货资格 → 发送退货码</p><p class="dim" style="margin:4px 0"><b>物流异常</b>：48h无更新自动标记 → 丢件确认 → 重发/退款</p><p class="dim" style="margin:4px 0"><b>投诉分级</b>：L1 AI处理 / L2 AI+券 / L3 转人工 / L4 秒级升级主管</p><p class="dim" style="margin:4px 0"><b>转人工</b>：自动生成上下文摘要 → 坐席秒懂前因后果</p></div></div>
-
-</div>
-
-<div class="deck-footer"><span class="dim2">AI智能客服</span><span>23 / 27</span></div>
-
-<div class="notes">售前的核心能力是推荐——不是随机推，是基于用户画像+实时对话的精准匹配。售后的关键是分级处理：简单问题AI自己解决，复杂问题带着上下文摘要无缝转给人工。投诉分级尤其重要——L4级别的舆情风险要秒级升级到主管，不能拖。</div>
-
-</section>
-
-
-
-<section class="slide" data-title="多语言与知识库">
-
-<p class="kicker">03 · 全球化 & 持续进化</p>
-
-<h2 class="h2">服务全球，越用越聪明</h2>
-
-<div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:12px">
-
-<div class="card"><h4>💡 50+ 语种实时翻译</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>NLLB-200</b>：Meta 开源 200 语种翻译 · 离线部署<br><b>GPT-4o 本地化改写</b>：非直译，日语敬语/英语短句/阿拉伯语RTL<br><b>文化适配滤镜</b>：节日禁忌/颜色符号/沟通风格自动检测</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">日语：です?ます体</span><span class="pill" style="font-size:11px">美式：benefit 驱动</span><span class="pill" style="font-size:11px">中东：关系优先</span></div></div>
-
-<div class="card"><h4>💡 知识库 & 持续学习闭环</h4><p class="dim" style="font-size:13px;line-height:1.6;margin:0"><b>知识图谱</b>：Neo4j + GraphRAG · 商品→属性→场景自动构建<br><b>数据回流</b>：低满意对话 → 人工标注 → LoRA 微调 → A/B测试<br><b>情感分析</b>：实时监测用户情绪 → 主动优化话术</p><div class="row mt-s" style="gap:6px"><span class="pill" style="font-size:11px">Neo4j 图数据库</span><span class="pill" style="font-size:11px">LoRA 高效微调</span><span class="pill" style="font-size:11px">RLHF 奖励模型</span></div></div>
-
-</div>
-
-<div class="deck-footer"><span class="dim2">AI智能客服</span><span>24 / 27</span></div>
-
-<div class="notes">多语言不是翻译，是本地化。《亲，这款超好用的》翻成日语不能直接说"超好用"，要用敬语表达品质感。知识库持续学习：每天收集低满意度对话→人工标注理想回复→每月LoRA微调→A/B测试→全量上线。这是客服质量的飞轮。</div>
-
-</section>
-
-
-
 <section class="slide center tc" data-title="AI客服案例">
 
 <div style="max-width:800px;margin:0 auto">
