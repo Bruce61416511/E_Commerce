@@ -498,9 +498,9 @@
 <div class="grid g1 mt-m anim-stagger-list" data-anim-target style="gap:4px">
 
 <div class="card" style="padding:12px 18px"><h4 style="margin:0 0 4px">💡 利润维度</h4><p class="dim" style="font-size:13px;margin:0"><b>流程</b>：📥 标价/券后价（← Keepa + 魔镜市场情报 每日抓取） + 我方预估成本（采购/物流/佣金）→ 📊 XGBoost 预估利润率 → 📊 利润得分<br><span style="font-size:11px;color:var(--text-3)"><b>📊 XGBoost</b>：开源集成学习算法，AWS SageMaker / Google Vertex AI / Azure ML / 阿里云 PAI 均封装为零代码服务，上传 CSV 即可预测利润率</span></p></div>
-<div class="card" style="padding:12px 18px"><h4 style="margin:0 0 4px">💡 需求维度</h4><p class="dim" style="font-size:13px;margin:0"><b>流程</b>：📥 搜索量 / 评论增速 / 趋势加速度（← 蝉妈妈 / Apify / Google Trends）→ 📊 需求模型 → 📊 需求得分<br><span style="font-size:11px;color:var(--text-3)"><b>📊 需求模型</b>：多指标加权评分，需求得分 = 搜索量分 × 0.5 + 评论增速分 × 0.3 + 趋势加速度分 × 0.2</span></p></div>
-<div class="card" style="padding:12px 18px"><h4 style="margin:0 0 4px">💡 竞争强度</h4><p class="dim" style="font-size:13px;margin:0"><b>流程</b>：📥 竞品数量 / 价格带饱和度 / 评论壁垒（← 八爪鱼 + Keepa 多源聚合）→ 📊 竞争模型 → 📊 竞争得分<br><span style="font-size:11px;color:var(--text-3)"><b>📊 竞争模型</b>：多指标加权评分（反比），竞争得分 = 数量分 × 0.4 + 饱和分 × 0.3 + 壁垒分 × 0.3，分越高 = 竞争越弱</span></p></div>
-<div class="card" style="padding:12px 18px"><h4 style="margin:0 0 4px">💡 供应链风险</h4><p class="dim" style="font-size:13px;margin:0"><b>流程</b>：📥 供应商数量 / 交期 / 起订量（← 1688 + 行业数据）→ 📊 风险评估 → 📊 供应链得分<br><span style="font-size:11px;color:var(--text-3)"><b>📊 风险评估</b>：多指标加权评分，供应链得分 = 供应商数量分 × 0.4 + 交期分 × 0.3 + 起订量分 × 0.3，分越高 = 越稳</span></p></div>
+<div class="card" style="padding:12px 18px"><h4 style="margin:0 0 4px">💡 需求维度</h4><p class="dim" style="font-size:13px;margin:0"><b>流程</b>：📥 搜索量 / 评论增速 / 趋势加速度（← 蝉妈妈 / Apify / Google Trends）→ 📊 加权评分公式 → 📊 需求得分<br><span style="font-size:11px;color:var(--text-3)"><b>📊 加权评分公式</b>：多指标加权评分，需求得分 = 搜索量分 × 0.5 + 评论增速分 × 0.3 + 趋势加速度分 × 0.2</span></p></div>
+<div class="card" style="padding:12px 18px"><h4 style="margin:0 0 4px">💡 竞争强度</h4><p class="dim" style="font-size:13px;margin:0"><b>流程</b>：📥 竞品数量 / 价格带饱和度 / 评论壁垒（← 八爪鱼 + Keepa 多源聚合）→ 📊 加权评分（反比） → 📊 竞争得分<br><span style="font-size:11px;color:var(--text-3)"><b>📊 加权评分（反比）</b>：多指标加权评分（反比），竞争得分 = 数量分 × 0.4 + 饱和分 × 0.3 + 壁垒分 × 0.3，分越高 = 竞争越弱</span></p></div>
+<div class="card" style="padding:12px 18px"><h4 style="margin:0 0 4px">💡 供应链风险</h4><p class="dim" style="font-size:13px;margin:0"><b>流程</b>：📥 供应商数量 / 交期 / 起订量（← 1688 + 行业数据）→ 📊 加权评分 → 📊 供应链得分<br><span style="font-size:11px;color:var(--text-3)"><b>📊 加权评分</b>：多指标加权评分，供应链得分 = 供应商数量分 × 0.4 + 交期分 × 0.3 + 起订量分 × 0.3，分越高 = 越稳</span></p></div>
 
 </div>
 
@@ -1132,7 +1132,7 @@ JSON，每个字段含具体可执行的模板内容：
 <p style="margin:0 0 2px"><b>② 输入</b></p>
 <p style="margin:0 0 6px;color:var(--text-2);font-size:11px">商品日均销量分层（店铺后台订单数据）：爆款（>100件/天）、腰部（10-100）、长尾（<10）</p>
 <p style="margin:0 0 2px"><b>③ 工具</b></p>
-<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">爆款：DeepAR | 腰部：LightGBM | 长尾：Croston 间歇需求模型</p>
+<p style="margin:0 0 6px;color:var(--text-2);font-size:11px">爆款：DeepAR | 腰部：LightGBM | 长尾：Croston 间歇加权评分公式</p>
 <p style="margin:0 0 6px;color:var(--text-2);font-size:11px">⚡ 零代码：DeepAR → AWS Forecast &nbsp;|&nbsp; LightGBM → 阿里云 PAI / Azure AutoML &nbsp;|&nbsp; Croston → 需自写</p>
 <p style="margin:0 0 6px;color:var(--text-3);font-size:10px">均为专用时序预测算法，非语言大模型</p>
 <p style="margin:0 0 2px"><b>④ 输出</b></p>
@@ -1145,7 +1145,7 @@ JSON，每个字段含具体可执行的模板内容：
 
 <div class="deck-footer"><span class="dim2">供应链</span><span>17 / 27</span></div>
 
-<div class="notes">左边TFT是单品精细预测，右边分层是全店策略。爆款用TFT日级精算，腰部用LightGBM周级够用，长尾用Croston判断会不会卖。好钢用在刀刃上——全店1000个SKU不用都上TFT。——它能同时处理销量、促销、天气、节假日等多种因素，输出未来30天的预测和置信区间。分层预测的关键：爆款要日粒度精细管理，长尾商品用间歇需求模型，不要一刀切。</div>
+<div class="notes">左边TFT是单品精细预测，右边分层是全店策略。爆款用TFT日级精算，腰部用LightGBM周级够用，长尾用Croston判断会不会卖。好钢用在刀刃上——全店1000个SKU不用都上TFT。——它能同时处理销量、促销、天气、节假日等多种因素，输出未来30天的预测和置信区间。分层预测的关键：爆款要日粒度精细管理，长尾商品用间歇加权评分公式，不要一刀切。</div>
 
 </section>
 
@@ -1333,6 +1333,47 @@ JSON，每个字段含具体可执行的模板内容：
 </div>
 
 </section>
+
+<section class="slide" data-title="智能客服工具">
+
+<p class="kicker">智能客服 · 工具现状</p>
+
+<h2 class="h2">现成的 AI 客服怎么选？</h2>
+
+<div class="grid g2 mt-m" style="gap:10px">
+
+<div class="card" style="padding:14px 18px;background:var(--good-bg);border:1px solid var(--good)">
+<h4 style="margin:0 0 6px;color:var(--good)">✅ 大型品牌/平台</h4>
+<div style="font-size:12px;line-height:1.6;color:var(--text-2)">
+
+<p style="margin:0 0 6px"><b>Salesforce</b><span style="color:var(--text-3);font-size:10px">（厂商）</span> · <b>Einstein GPT</b><span style="color:var(--text-3);font-size:10px">（产品）</span><br>CRM 内生 AI 客服，自动化工单、意图路由，年费百万起</p>
+
+<p style="margin:0 0 6px"><b>Zendesk</b><span style="color:var(--text-3);font-size:10px">（厂商）</span> · <b>Zendesk AI</b><span style="color:var(--text-3);font-size:10px">（产品）</span><br>智能工单分类 + 自动回复 + 知识库建议，年费几十万起</p>
+
+<p style="margin:0"><b>Intercom</b><span style="color:var(--text-3);font-size:10px">（厂商）</span> · <b>Fin AI Agent</b><span style="color:var(--text-3);font-size:10px">（产品）</span><br>GPT-4o 驱动，直接回答用户问题，无需人工配置话术</p>
+
+</div>
+</div>
+
+<div class="card" style="padding:14px 18px">
+<h4 style="margin:0 0 6px;color:var(--warn, #e67e22)">⚠️ 中小卖家（国内电商）</h4>
+<div style="font-size:12px;line-height:1.6;color:var(--text-2)">
+
+<p style="margin:0 0 6px"><b>店小蜜</b>（阿里官方 · 淘宝/天猫内置）<br>关键词匹配 + LLM 增强，免费基础版，专业版数千/年</p>
+
+<p style="margin:0 0 6px"><b>智齿科技</b> · 智能客服机器人<br>多平台接入，意图识别 + 知识库，数千~数万/年</p>
+
+<p style="margin:0"><b>网易七鱼</b> · 在线客服 + AI 机器人<br>全渠道覆盖，大模型问答，数万/年起</p>
+
+</div>
+</div>
+
+</div>
+
+<div class="deck-footer"><span class="dim2">AI智能客服</span><span>23 / 25</span></div>
+
+</section>
+
 <section class="slide center tc" data-title="AI客服案例">
 
 <div style="max-width:800px;margin:0 auto">
